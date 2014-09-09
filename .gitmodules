@@ -1,0 +1,3 @@
+[submodule "ios/SickAF MGR/Frameworks/Alamofire"]
+	path = ios/SickAF MGR/Frameworks/Alamofire
+	url = https://github.com/Alamofire/Alamofire.git

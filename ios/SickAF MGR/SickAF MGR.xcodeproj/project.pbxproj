@@ -22,6 +22,27 @@
 			remoteGlobalIDString = 820EE7C819BF21BD00F7D97C;
 			remoteInfo = "SickAF MGR";
 		};
+		8267AAED19BF28AE005E2D58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8267AAE819BF28AE005E2D58 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
+		8267AAEF19BF28AE005E2D58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8267AAE819BF28AE005E2D58 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = AlamofireTests;
+		};
+		8267AAF119BF28DC005E2D58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8267AAE819BF28AE005E2D58 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +55,7 @@
 		820EE7DB19BF21BD00F7D97C /* SickAF MGRTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SickAF MGRTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		820EE7E019BF21BD00F7D97C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		820EE7E119BF21BD00F7D97C /* SickAF_MGRTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SickAF_MGRTests.swift; sourceTree = "<group>"; };
+		8267AAE819BF28AE005E2D58 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Frameworks/Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +135,18 @@
 		820EE7EB19BF225300F7D97C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8267AAE819BF28AE005E2D58 /* Alamofire.xcodeproj */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8267AAE919BF28AE005E2D58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8267AAEE19BF28AE005E2D58 /* Alamofire.framework */,
+				8267AAF019BF28AE005E2D58 /* AlamofireTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +163,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				8267AAF219BF28DC005E2D58 /* PBXTargetDependency */,
 			);
 			name = "SickAF MGR";
 			productName = "SickAF MGR";
@@ -184,6 +217,12 @@
 			mainGroup = 820EE7C019BF21BD00F7D97C;
 			productRefGroup = 820EE7CA19BF21BD00F7D97C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8267AAE919BF28AE005E2D58 /* Products */;
+					ProjectRef = 8267AAE819BF28AE005E2D58 /* Alamofire.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				820EE7C819BF21BD00F7D97C /* SickAF MGR */,
@@ -191,6 +230,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8267AAEE19BF28AE005E2D58 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 8267AAED19BF28AE005E2D58 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8267AAF019BF28AE005E2D58 /* AlamofireTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AlamofireTests.xctest;
+			remoteRef = 8267AAEF19BF28AE005E2D58 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		820EE7C719BF21BD00F7D97C /* Resources */ = {
@@ -236,6 +292,11 @@
 			isa = PBXTargetDependency;
 			target = 820EE7C819BF21BD00F7D97C /* SickAF MGR */;
 			targetProxy = 820EE7DC19BF21BD00F7D97C /* PBXContainerItemProxy */;
+		};
+		8267AAF219BF28DC005E2D58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			targetProxy = 8267AAF119BF28DC005E2D58 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -403,6 +464,7 @@
 				820EE7E719BF21BD00F7D97C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		820EE7E819BF21BD00F7D97C /* Build configuration list for PBXNativeTarget "SickAF MGRTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +473,7 @@
 				820EE7EA19BF21BD00F7D97C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
