@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		820EE7CF19BF21BD00F7D97C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EE7CE19BF21BD00F7D97C /* AppDelegate.swift */; };
+		820EE7D119BF21BD00F7D97C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EE7D019BF21BD00F7D97C /* ViewController.swift */; };
+		820EE7D419BF21BD00F7D97C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 820EE7D219BF21BD00F7D97C /* Main.storyboard */; };
+		820EE7D619BF21BD00F7D97C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 820EE7D519BF21BD00F7D97C /* Images.xcassets */; };
+		820EE7E219BF21BD00F7D97C /* SickAF_MGRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EE7E119BF21BD00F7D97C /* SickAF_MGRTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		820EE7DC19BF21BD00F7D97C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 820EE7C119BF21BD00F7D97C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 820EE7C819BF21BD00F7D97C;
+			remoteInfo = "SickAF MGR";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		820EE7C919BF21BD00F7D97C /* SickAF MGR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SickAF MGR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		820EE7CD19BF21BD00F7D97C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		820EE7CE19BF21BD00F7D97C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		820EE7D019BF21BD00F7D97C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		820EE7D319BF21BD00F7D97C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		820EE7D519BF21BD00F7D97C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		820EE7DB19BF21BD00F7D97C /* SickAF MGRTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SickAF MGRTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		820EE7E019BF21BD00F7D97C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		820EE7E119BF21BD00F7D97C /* SickAF_MGRTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SickAF_MGRTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		820EE7C619BF21BD00F7D97C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		820EE7D819BF21BD00F7D97C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		820EE7C019BF21BD00F7D97C = {
+			isa = PBXGroup;
+			children = (
+				820EE7EB19BF225300F7D97C /* Frameworks */,
+				820EE7CB19BF21BD00F7D97C /* SickAF MGR */,
+				820EE7DE19BF21BD00F7D97C /* SickAF MGRTests */,
+				820EE7CA19BF21BD00F7D97C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		820EE7CA19BF21BD00F7D97C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				820EE7C919BF21BD00F7D97C /* SickAF MGR.app */,
+				820EE7DB19BF21BD00F7D97C /* SickAF MGRTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		820EE7CB19BF21BD00F7D97C /* SickAF MGR */ = {
+			isa = PBXGroup;
+			children = (
+				820EE7CE19BF21BD00F7D97C /* AppDelegate.swift */,
+				820EE7D019BF21BD00F7D97C /* ViewController.swift */,
+				820EE7D219BF21BD00F7D97C /* Main.storyboard */,
+				820EE7D519BF21BD00F7D97C /* Images.xcassets */,
+				820EE7CC19BF21BD00F7D97C /* Supporting Files */,
+			);
+			path = "SickAF MGR";
+			sourceTree = "<group>";
+		};
+		820EE7CC19BF21BD00F7D97C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				820EE7CD19BF21BD00F7D97C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		820EE7DE19BF21BD00F7D97C /* SickAF MGRTests */ = {
+			isa = PBXGroup;
+			children = (
+				820EE7E119BF21BD00F7D97C /* SickAF_MGRTests.swift */,
+				820EE7DF19BF21BD00F7D97C /* Supporting Files */,
+			);
+			path = "SickAF MGRTests";
+			sourceTree = "<group>";
+		};
+		820EE7DF19BF21BD00F7D97C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				820EE7E019BF21BD00F7D97C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		820EE7EB19BF225300F7D97C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		820EE7C819BF21BD00F7D97C /* SickAF MGR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 820EE7E519BF21BD00F7D97C /* Build configuration list for PBXNativeTarget "SickAF MGR" */;
+			buildPhases = (
+				820EE7C519BF21BD00F7D97C /* Sources */,
+				820EE7C619BF21BD00F7D97C /* Frameworks */,
+				820EE7C719BF21BD00F7D97C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SickAF MGR";
+			productName = "SickAF MGR";
+			productReference = 820EE7C919BF21BD00F7D97C /* SickAF MGR.app */;
+			productType = "com.apple.product-type.application";
+		};
+		820EE7DA19BF21BD00F7D97C /* SickAF MGRTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 820EE7E819BF21BD00F7D97C /* Build configuration list for PBXNativeTarget "SickAF MGRTests" */;
+			buildPhases = (
+				820EE7D719BF21BD00F7D97C /* Sources */,
+				820EE7D819BF21BD00F7D97C /* Frameworks */,
+				820EE7D919BF21BD00F7D97C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				820EE7DD19BF21BD00F7D97C /* PBXTargetDependency */,
+			);
+			name = "SickAF MGRTests";
+			productName = "SickAF MGRTests";
+			productReference = 820EE7DB19BF21BD00F7D97C /* SickAF MGRTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		820EE7C119BF21BD00F7D97C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = sickaf;
+				TargetAttributes = {
+					820EE7C819BF21BD00F7D97C = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					820EE7DA19BF21BD00F7D97C = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 820EE7C819BF21BD00F7D97C;
+					};
+				};
+			};
+			buildConfigurationList = 820EE7C419BF21BD00F7D97C /* Build configuration list for PBXProject "SickAF MGR" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 820EE7C019BF21BD00F7D97C;
+			productRefGroup = 820EE7CA19BF21BD00F7D97C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				820EE7C819BF21BD00F7D97C /* SickAF MGR */,
+				820EE7DA19BF21BD00F7D97C /* SickAF MGRTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		820EE7C719BF21BD00F7D97C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				820EE7D419BF21BD00F7D97C /* Main.storyboard in Resources */,
+				820EE7D619BF21BD00F7D97C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		820EE7D919BF21BD00F7D97C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		820EE7C519BF21BD00F7D97C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				820EE7D119BF21BD00F7D97C /* ViewController.swift in Sources */,
+				820EE7CF19BF21BD00F7D97C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		820EE7D719BF21BD00F7D97C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				820EE7E219BF21BD00F7D97C /* SickAF_MGRTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		820EE7DD19BF21BD00F7D97C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 820EE7C819BF21BD00F7D97C /* SickAF MGR */;
+			targetProxy = 820EE7DC19BF21BD00F7D97C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		820EE7D219BF21BD00F7D97C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				820EE7D319BF21BD00F7D97C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		820EE7E319BF21BD00F7D97C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		820EE7E419BF21BD00F7D97C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		820EE7E619BF21BD00F7D97C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = "SickAF MGR/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		820EE7E719BF21BD00F7D97C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = "SickAF MGR/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		820EE7E919BF21BD00F7D97C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SickAF MGRTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SickAF MGR.app/SickAF MGR";
+			};
+			name = Debug;
+		};
+		820EE7EA19BF21BD00F7D97C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SickAF MGRTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SickAF MGR.app/SickAF MGR";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		820EE7C419BF21BD00F7D97C /* Build configuration list for PBXProject "SickAF MGR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				820EE7E319BF21BD00F7D97C /* Debug */,
+				820EE7E419BF21BD00F7D97C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		820EE7E519BF21BD00F7D97C /* Build configuration list for PBXNativeTarget "SickAF MGR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				820EE7E619BF21BD00F7D97C /* Debug */,
+				820EE7E719BF21BD00F7D97C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		820EE7E819BF21BD00F7D97C /* Build configuration list for PBXNativeTarget "SickAF MGRTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				820EE7E919BF21BD00F7D97C /* Debug */,
+				820EE7EA19BF21BD00F7D97C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 820EE7C119BF21BD00F7D97C /* Project object */;
+}
