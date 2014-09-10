@@ -1,0 +1,412 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7F0C774419BF40EA00E2C44C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C774319BF40EA00E2C44C /* main.swift */; };
+		7F0C774619BF40EA00E2C44C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C774519BF40EA00E2C44C /* AppDelegate.swift */; };
+		7F0C774819BF40EA00E2C44C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F0C774719BF40EA00E2C44C /* Images.xcassets */; };
+		7F0C774B19BF40EA00E2C44C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F0C774919BF40EA00E2C44C /* MainMenu.xib */; };
+		7F0C775719BF40EA00E2C44C /* SickAFManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C775619BF40EA00E2C44C /* SickAFManagerTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7F0C775119BF40EA00E2C44C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7F0C773619BF40E900E2C44C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7F0C773D19BF40E900E2C44C;
+			remoteInfo = SickAFManager;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7F0C773E19BF40EA00E2C44C /* SickAFManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SickAFManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F0C774219BF40EA00E2C44C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F0C774319BF40EA00E2C44C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		7F0C774519BF40EA00E2C44C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7F0C774719BF40EA00E2C44C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7F0C774A19BF40EA00E2C44C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		7F0C775019BF40EA00E2C44C /* SickAFManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SickAFManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F0C775519BF40EA00E2C44C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F0C775619BF40EA00E2C44C /* SickAFManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SickAFManagerTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7F0C773B19BF40E900E2C44C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F0C774D19BF40EA00E2C44C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7F0C773519BF40E900E2C44C = {
+			isa = PBXGroup;
+			children = (
+				7F0C774019BF40EA00E2C44C /* SickAFManager */,
+				7F0C775319BF40EA00E2C44C /* SickAFManagerTests */,
+				7F0C773F19BF40EA00E2C44C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7F0C773F19BF40EA00E2C44C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7F0C773E19BF40EA00E2C44C /* SickAFManager.app */,
+				7F0C775019BF40EA00E2C44C /* SickAFManagerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7F0C774019BF40EA00E2C44C /* SickAFManager */ = {
+			isa = PBXGroup;
+			children = (
+				7F0C774519BF40EA00E2C44C /* AppDelegate.swift */,
+				7F0C774719BF40EA00E2C44C /* Images.xcassets */,
+				7F0C774919BF40EA00E2C44C /* MainMenu.xib */,
+				7F0C774119BF40EA00E2C44C /* Supporting Files */,
+			);
+			path = SickAFManager;
+			sourceTree = "<group>";
+		};
+		7F0C774119BF40EA00E2C44C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7F0C774219BF40EA00E2C44C /* Info.plist */,
+				7F0C774319BF40EA00E2C44C /* main.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7F0C775319BF40EA00E2C44C /* SickAFManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				7F0C775619BF40EA00E2C44C /* SickAFManagerTests.swift */,
+				7F0C775419BF40EA00E2C44C /* Supporting Files */,
+			);
+			path = SickAFManagerTests;
+			sourceTree = "<group>";
+		};
+		7F0C775419BF40EA00E2C44C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7F0C775519BF40EA00E2C44C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7F0C773D19BF40E900E2C44C /* SickAFManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F0C775A19BF40EA00E2C44C /* Build configuration list for PBXNativeTarget "SickAFManager" */;
+			buildPhases = (
+				7F0C773A19BF40E900E2C44C /* Sources */,
+				7F0C773B19BF40E900E2C44C /* Frameworks */,
+				7F0C773C19BF40E900E2C44C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SickAFManager;
+			productName = SickAFManager;
+			productReference = 7F0C773E19BF40EA00E2C44C /* SickAFManager.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7F0C774F19BF40EA00E2C44C /* SickAFManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F0C775D19BF40EA00E2C44C /* Build configuration list for PBXNativeTarget "SickAFManagerTests" */;
+			buildPhases = (
+				7F0C774C19BF40EA00E2C44C /* Sources */,
+				7F0C774D19BF40EA00E2C44C /* Frameworks */,
+				7F0C774E19BF40EA00E2C44C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7F0C775219BF40EA00E2C44C /* PBXTargetDependency */,
+			);
+			name = SickAFManagerTests;
+			productName = SickAFManagerTests;
+			productReference = 7F0C775019BF40EA00E2C44C /* SickAFManagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7F0C773619BF40E900E2C44C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = sick.af;
+				TargetAttributes = {
+					7F0C773D19BF40E900E2C44C = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					7F0C774F19BF40EA00E2C44C = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 7F0C773D19BF40E900E2C44C;
+					};
+				};
+			};
+			buildConfigurationList = 7F0C773919BF40E900E2C44C /* Build configuration list for PBXProject "SickAFManager" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7F0C773519BF40E900E2C44C;
+			productRefGroup = 7F0C773F19BF40EA00E2C44C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7F0C773D19BF40E900E2C44C /* SickAFManager */,
+				7F0C774F19BF40EA00E2C44C /* SickAFManagerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7F0C773C19BF40E900E2C44C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F0C774819BF40EA00E2C44C /* Images.xcassets in Resources */,
+				7F0C774B19BF40EA00E2C44C /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F0C774E19BF40EA00E2C44C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7F0C773A19BF40E900E2C44C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F0C774619BF40EA00E2C44C /* AppDelegate.swift in Sources */,
+				7F0C774419BF40EA00E2C44C /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F0C774C19BF40EA00E2C44C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F0C775719BF40EA00E2C44C /* SickAFManagerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7F0C775219BF40EA00E2C44C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7F0C773D19BF40E900E2C44C /* SickAFManager */;
+			targetProxy = 7F0C775119BF40EA00E2C44C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7F0C774919BF40EA00E2C44C /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7F0C774A19BF40EA00E2C44C /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7F0C775819BF40EA00E2C44C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7F0C775919BF40EA00E2C44C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7F0C775B19BF40EA00E2C44C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SickAFManager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7F0C775C19BF40EA00E2C44C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SickAFManager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7F0C775E19BF40EA00E2C44C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SickAFManagerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SickAFManager.app/Contents/MacOS/SickAFManager";
+			};
+			name = Debug;
+		};
+		7F0C775F19BF40EA00E2C44C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SickAFManagerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SickAFManager.app/Contents/MacOS/SickAFManager";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7F0C773919BF40E900E2C44C /* Build configuration list for PBXProject "SickAFManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F0C775819BF40EA00E2C44C /* Debug */,
+				7F0C775919BF40EA00E2C44C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F0C775A19BF40EA00E2C44C /* Build configuration list for PBXNativeTarget "SickAFManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F0C775B19BF40EA00E2C44C /* Debug */,
+				7F0C775C19BF40EA00E2C44C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7F0C775D19BF40EA00E2C44C /* Build configuration list for PBXNativeTarget "SickAFManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F0C775E19BF40EA00E2C44C /* Debug */,
+				7F0C775F19BF40EA00E2C44C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7F0C773619BF40E900E2C44C /* Project object */;
+}
