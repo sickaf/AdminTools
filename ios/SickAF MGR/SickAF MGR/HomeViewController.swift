@@ -22,6 +22,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
         changeToDate(NSDate())
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
     
     // MARK: Table View Data Source

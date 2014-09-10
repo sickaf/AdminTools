@@ -12,6 +12,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BpK-g4-ryF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.46151995838801541" blue="0.26643677245690778" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="wGm-V8-dn0" kind="relationship" relationship="rootViewController" id="lqZ-J8-rE0"/>
@@ -125,6 +129,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="3ce-ds-NSm" secondAttribute="centerX" id="YMs-sX-a0h"/>
                             <constraint firstItem="3ce-ds-NSm" firstAttribute="height" secondItem="o7E-rI-hSK" secondAttribute="height" id="ZLg-WN-tR0"/>
@@ -296,6 +301,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kae-2T-IyW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.46151995839999999" blue="0.26643677249999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="4EQ-RW-PQJ" kind="relationship" relationship="rootViewController" id="POT-uz-zCZ"/>
