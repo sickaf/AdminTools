@@ -14,6 +14,8 @@
 		<string>https://github.com/CodyKolodziejzyk/AdminTools.git</string>
 		<key>67620B5EFA902936DF04070AF595B76AB0333747</key>
 		<string>https://github.com/Alamofire/Alamofire.git</string>
+		<key>DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8</key>
+		<string>https://github.com/AFNetworking/AFNetworking.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ios/SickAF MGR/SickAF MGR.xcodeproj</string>
@@ -23,6 +25,8 @@
 		<string>../../../..</string>
 		<key>67620B5EFA902936DF04070AF595B76AB0333747</key>
 		<string>../../../..ios/SickAF%20MGR/Frameworks/Alamofire</string>
+		<key>DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8</key>
+		<string>../../../../ios/SickAF%20MGR/Frameworks/AFNetworking/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/CodyKolodziejzyk/AdminTools.git</string>
@@ -39,6 +43,14 @@
 			<string>3D4D4862E315B83D49FAC56DEE035ADF52497C2A</string>
 			<key>IDESourceControlWCCName</key>
 			<string>AdminTools</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DD20A1A48C66B5213E0FEBB87A95EF51D6C6F3E8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AFNetworking</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

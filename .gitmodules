@@ -1,3 +1,6 @@
 [submodule "ios/SickAF MGR/Frameworks/Alamofire"]
 	path = ios/SickAF MGR/Frameworks/Alamofire
 	url = https://github.com/Alamofire/Alamofire.git
+[submodule "ios/SickAF MGR/Frameworks/AFNetworking"]
+	path = ios/SickAF MGR/Frameworks/AFNetworking
+	url = https://github.com/AFNetworking/AFNetworking.git

@@ -23,5 +23,10 @@ class ImagePreviewTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        iconImageView.setImageWithURL(nil)
+        iconImageView.image = nil
+    }
 }

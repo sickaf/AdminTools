@@ -11,13 +11,11 @@ import UIKit
 class DatePickerViewController: UIViewController {
     
     var delegate: DatePickerDelegate?
-    let dateFormatter = NSDateFormatter()
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,11 +24,14 @@ class DatePickerViewController: UIViewController {
     }
     
     @IBAction func pressedDone(sender: UIDatePicker) {
-        let dateString = dateFormatter.stringFromDate(datePicker.date)
-        delegate?.datePicked(dateString)
+        delegate?.datePicked(datePicker.date)
+    }
+    
+    @IBAction func pressedX(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
 protocol DatePickerDelegate {
-    func datePicked(date: String)
+    func datePicked(date: NSDate)
 }
