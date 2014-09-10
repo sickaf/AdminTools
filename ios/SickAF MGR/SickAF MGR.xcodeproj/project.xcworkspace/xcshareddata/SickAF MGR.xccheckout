@@ -22,7 +22,7 @@
 		<key>3D4D4862E315B83D49FAC56DEE035ADF52497C2A</key>
 		<string>../../../..</string>
 		<key>67620B5EFA902936DF04070AF595B76AB0333747</key>
-		<string>../../../..ios/SickAF%20MGR/Frameworks/Alamofire/</string>
+		<string>../../../..ios/SickAF%20MGR/Frameworks/Alamofire</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/CodyKolodziejzyk/AdminTools.git</string>

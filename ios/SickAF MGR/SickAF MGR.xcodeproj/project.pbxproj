@@ -79,10 +79,10 @@
 		820EE7C019BF21BD00F7D97C = {
 			isa = PBXGroup;
 			children = (
-				820EE7EB19BF225300F7D97C /* Frameworks */,
 				820EE7CB19BF21BD00F7D97C /* SickAF MGR */,
 				820EE7DE19BF21BD00F7D97C /* SickAF MGRTests */,
 				820EE7CA19BF21BD00F7D97C /* Products */,
+				820EE7EB19BF225300F7D97C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
