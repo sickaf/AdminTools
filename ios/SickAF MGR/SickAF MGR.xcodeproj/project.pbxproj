@@ -9,6 +9,21 @@
 /* Begin PBXBuildFile section */
 		7F0C776319C06D4D00E2C44C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C776219C06D4D00E2C44C /* HomeViewController.swift */; };
 		7F0C776719C06D5F00E2C44C /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F0C776519C06D5F00E2C44C /* Home.storyboard */; };
+		7F0C776A19C076C500E2C44C /* ImagePreviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C776919C076C500E2C44C /* ImagePreviewTableViewCell.swift */; };
+		7F0C776D19C0817C00E2C44C /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C776C19C0817C00E2C44C /* DatePickerViewController.swift */; };
+		7F0C776F19C084CB00E2C44C /* IGPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C776E19C084CB00E2C44C /* IGPhoto.swift */; };
+		7F0C777619C08B0500E2C44C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0C777419C08B0500E2C44C /* Bolts.framework */; };
+		7F0C777719C08B0500E2C44C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0C777519C08B0500E2C44C /* Parse.framework */; };
+		7F0C777919C08B7400E2C44C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0C777819C08B7400E2C44C /* AudioToolbox.framework */; };
+		7F0C777B19C08B7900E2C44C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0C777A19C08B7900E2C44C /* CFNetwork.framework */; };
+		7F0C777D19C08B7F00E2C44C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0C777C19C08B7F00E2C44C /* CoreGraphics.framework */; };
+		7F0C777F19C08B8400E2C44C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0C777E19C08B8400E2C44C /* CoreLocation.framework */; };
+		7F0C778119C08B8900E2C44C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0C778019C08B8900E2C44C /* libz.dylib */; };
+		7F0C778319C08B8E00E2C44C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0C778219C08B8E00E2C44C /* MobileCoreServices.framework */; };
+		7F0C778519C08B9300E2C44C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0C778419C08B9300E2C44C /* QuartzCore.framework */; };
+		7F0C778719C08B9700E2C44C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0C778619C08B9700E2C44C /* Security.framework */; };
+		7F0C778919C08B9C00E2C44C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0C778819C08B9C00E2C44C /* StoreKit.framework */; };
+		7F0C778B19C08BA300E2C44C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0C778A19C08BA300E2C44C /* SystemConfiguration.framework */; };
 		820EE7CF19BF21BD00F7D97C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EE7CE19BF21BD00F7D97C /* AppDelegate.swift */; };
 		820EE7D119BF21BD00F7D97C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EE7D019BF21BD00F7D97C /* ViewController.swift */; };
 		820EE7D419BF21BD00F7D97C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 820EE7D219BF21BD00F7D97C /* Main.storyboard */; };
@@ -50,6 +65,22 @@
 /* Begin PBXFileReference section */
 		7F0C776219C06D4D00E2C44C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7F0C776619C06D5F00E2C44C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
+		7F0C776919C076C500E2C44C /* ImagePreviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePreviewTableViewCell.swift; sourceTree = "<group>"; };
+		7F0C776C19C0817C00E2C44C /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		7F0C776E19C084CB00E2C44C /* IGPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGPhoto.swift; sourceTree = "<group>"; };
+		7F0C777019C08A4F00E2C44C /* SickAF MGR-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SickAF MGR-Bridging-Header.h"; sourceTree = "<group>"; };
+		7F0C777419C08B0500E2C44C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
+		7F0C777519C08B0500E2C44C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
+		7F0C777819C08B7400E2C44C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		7F0C777A19C08B7900E2C44C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		7F0C777C19C08B7F00E2C44C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7F0C777E19C08B8400E2C44C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7F0C778019C08B8900E2C44C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		7F0C778219C08B8E00E2C44C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		7F0C778419C08B9300E2C44C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7F0C778619C08B9700E2C44C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7F0C778819C08B9C00E2C44C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		7F0C778A19C08BA300E2C44C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		820EE7C919BF21BD00F7D97C /* SickAF MGR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SickAF MGR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		820EE7CD19BF21BD00F7D97C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		820EE7CE19BF21BD00F7D97C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +98,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F0C778B19C08BA300E2C44C /* SystemConfiguration.framework in Frameworks */,
+				7F0C778919C08B9C00E2C44C /* StoreKit.framework in Frameworks */,
+				7F0C778719C08B9700E2C44C /* Security.framework in Frameworks */,
+				7F0C778519C08B9300E2C44C /* QuartzCore.framework in Frameworks */,
+				7F0C778319C08B8E00E2C44C /* MobileCoreServices.framework in Frameworks */,
+				7F0C778119C08B8900E2C44C /* libz.dylib in Frameworks */,
+				7F0C777F19C08B8400E2C44C /* CoreLocation.framework in Frameworks */,
+				7F0C777D19C08B7F00E2C44C /* CoreGraphics.framework in Frameworks */,
+				7F0C777B19C08B7900E2C44C /* CFNetwork.framework in Frameworks */,
+				7F0C777919C08B7400E2C44C /* AudioToolbox.framework in Frameworks */,
+				7F0C777719C08B0500E2C44C /* Parse.framework in Frameworks */,
+				7F0C777619C08B0500E2C44C /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,10 +148,14 @@
 				820EE7CE19BF21BD00F7D97C /* AppDelegate.swift */,
 				820EE7D019BF21BD00F7D97C /* ViewController.swift */,
 				7F0C776219C06D4D00E2C44C /* HomeViewController.swift */,
+				7F0C776919C076C500E2C44C /* ImagePreviewTableViewCell.swift */,
+				7F0C776C19C0817C00E2C44C /* DatePickerViewController.swift */,
+				7F0C776E19C084CB00E2C44C /* IGPhoto.swift */,
 				820EE7D219BF21BD00F7D97C /* Main.storyboard */,
 				7F0C776519C06D5F00E2C44C /* Home.storyboard */,
 				820EE7D519BF21BD00F7D97C /* Images.xcassets */,
 				820EE7CC19BF21BD00F7D97C /* Supporting Files */,
+				7F0C777019C08A4F00E2C44C /* SickAF MGR-Bridging-Header.h */,
 			);
 			path = "SickAF MGR";
 			sourceTree = "<group>";
@@ -141,6 +188,18 @@
 		820EE7EB19BF225300F7D97C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7F0C778A19C08BA300E2C44C /* SystemConfiguration.framework */,
+				7F0C778819C08B9C00E2C44C /* StoreKit.framework */,
+				7F0C778619C08B9700E2C44C /* Security.framework */,
+				7F0C778419C08B9300E2C44C /* QuartzCore.framework */,
+				7F0C778219C08B8E00E2C44C /* MobileCoreServices.framework */,
+				7F0C778019C08B8900E2C44C /* libz.dylib */,
+				7F0C777E19C08B8400E2C44C /* CoreLocation.framework */,
+				7F0C777C19C08B7F00E2C44C /* CoreGraphics.framework */,
+				7F0C777A19C08B7900E2C44C /* CFNetwork.framework */,
+				7F0C777819C08B7400E2C44C /* AudioToolbox.framework */,
+				7F0C777419C08B0500E2C44C /* Bolts.framework */,
+				7F0C777519C08B0500E2C44C /* Parse.framework */,
 				8267AAE819BF28AE005E2D58 /* Alamofire.xcodeproj */,
 			);
 			name = Frameworks;
@@ -280,7 +339,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				820EE7D119BF21BD00F7D97C /* ViewController.swift in Sources */,
+				7F0C776D19C0817C00E2C44C /* DatePickerViewController.swift in Sources */,
 				820EE7CF19BF21BD00F7D97C /* AppDelegate.swift in Sources */,
+				7F0C776A19C076C500E2C44C /* ImagePreviewTableViewCell.swift in Sources */,
+				7F0C776F19C084CB00E2C44C /* IGPhoto.swift in Sources */,
 				7F0C776319C06D4D00E2C44C /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,9 +472,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "SickAF MGR/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SickAF MGR/SickAF MGR-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -421,9 +490,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "SickAF MGR/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SickAF MGR/SickAF MGR-Bridging-Header.h";
 			};
 			name = Release;
 		};
