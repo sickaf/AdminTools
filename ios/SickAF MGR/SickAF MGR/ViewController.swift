@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     let dateFormatter = NSDateFormatter()
     var photoUrl = ""
     var username = ""
-    var forDate = "2015-01-01"
+    var forDate = ""
     
     @IBAction func postButton(sender: UIButton) {
         
@@ -29,6 +29,7 @@ class ViewController: UIViewController {
         Alamofire.request(.GET, urlTextField.text )
             .responseString { (request, response, string, error) in
                 var responseString = string!
+                var testVar : Int
                 var userString = responseString
                 responseString = responseString.componentsSeparatedByString("og:image\" content=\"")[1]
                 responseString = responseString.componentsSeparatedByString("\"")[0]
