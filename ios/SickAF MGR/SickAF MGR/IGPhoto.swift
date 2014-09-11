@@ -11,9 +11,11 @@ import UIKit
 class IGPhoto: NSObject {
     var url: String?
     var username: String?
+    var objectId: String?
     
-    init(url: String, username: String) {
+    init(url: String, username: String, objectId: String) {
         self.url = url
         self.username = username
+        self.objectId = objectId
     }
 }

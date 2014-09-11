@@ -20,6 +20,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.allowsMultipleSelectionDuringEditing = false
+        
+
         dateFormatter.dateFormat = "yyyy-MM-dd"
         changeToDate(NSDate())
         
@@ -40,6 +43,29 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            var objId = self.data[indexPath.row].objectId
+            var query = PFQuery(className: "IGPhoto")
+            query.whereKey("objectId", equalTo: objId)
+            query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+                
+                //  delete image with the specified objectId
+                if (error == nil) {
+                    for object in objects {
+                        let currentObject = object as PFObject
+                        var myStrUser = currentObject["IGUsername"] as String
+                        var myStrUrl = currentObject["URL"] as String
+                        println("deleting current obj posted by: \(myStrUser) at \(myStrUrl)")
+                        currentObject.deleteInBackground()
+                    }
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+
     // MARK: Helpers
     
     func getDataForDate(date: String) {
@@ -59,7 +85,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     let currentObject = object as PFObject
                     let retrievedUrl = currentObject["URL"] as String
                     let retrievedUsername = currentObject["IGUsername"] as String
-                    let photo = IGPhoto(url: retrievedUrl, username: retrievedUsername)
+                    let retrievedObjectId = currentObject.objectId
+                    let photo = IGPhoto( url: retrievedUrl, username: retrievedUsername, objectId: retrievedObjectId)
                     self.data.append(photo)
                 }
                 self.tableView.reloadData()
@@ -84,7 +111,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func pressedAdd(sender: AnyObject) {
         let st: UIStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let vc: UIViewController = st.instantiateInitialViewController() as UIViewController
+        var vc: ViewController = st.instantiateInitialViewController() as ViewController
+        vc.chosenDate = dateString
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

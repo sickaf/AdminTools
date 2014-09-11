@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.9" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KpC-rE-Cbf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -78,7 +79,8 @@
                                                             <exclude reference="62Y-x4-RaB"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="143" y="40" width="151" height="21"/>
                                                         <mask key="constraints">
                                                             <include reference="62Y-x4-RaB"/>
                                                         </mask>
@@ -97,10 +99,10 @@
                                                     <exclude reference="Uwc-rR-R8D"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="Geo-aM-I8o"/>
-                                                    <exclude reference="S5t-UE-J8C"/>
                                                     <exclude reference="ehp-VO-did"/>
                                                     <exclude reference="ei2-eP-TxK"/>
+                                                    <exclude reference="Geo-aM-I8o"/>
+                                                    <exclude reference="S5t-UE-J8C"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -109,10 +111,10 @@
                                                     <include reference="Uwc-rR-R8D"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="Geo-aM-I8o"/>
-                                                    <include reference="S5t-UE-J8C"/>
                                                     <include reference="ehp-VO-did"/>
                                                     <include reference="ei2-eP-TxK"/>
+                                                    <include reference="Geo-aM-I8o"/>
+                                                    <include reference="S5t-UE-J8C"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -190,6 +192,7 @@
                         <viewControllerLayoutGuide type="bottom" id="zAv-Qi-maQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lYC-3Y-fF7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="GRc-7s-WSi">
@@ -258,11 +261,11 @@
                                 <exclude reference="Ld9-T9-fzg"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="M0D-wc-Sq9"/>
+                                <exclude reference="gSa-yt-Etn"/>
                                 <exclude reference="0uI-OQ-MdH"/>
                                 <exclude reference="P7U-He-sMH"/>
                                 <exclude reference="R2y-6v-p2k"/>
-                                <exclude reference="M0D-wc-Sq9"/>
-                                <exclude reference="gSa-yt-Etn"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -271,11 +274,11 @@
                                 <include reference="Ld9-T9-fzg"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="M0D-wc-Sq9"/>
+                                <include reference="gSa-yt-Etn"/>
                                 <include reference="0uI-OQ-MdH"/>
                                 <include reference="P7U-He-sMH"/>
                                 <include reference="R2y-6v-p2k"/>
-                                <include reference="M0D-wc-Sq9"/>
-                                <include reference="gSa-yt-Etn"/>
                             </mask>
                         </variation>
                     </view>

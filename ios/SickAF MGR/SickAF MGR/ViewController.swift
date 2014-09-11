@@ -13,18 +13,14 @@ import Foundation
 
 
 class ViewController: UIViewController {
+    
+    var chosenDate: NSString! = ""
                             
-    @IBOutlet weak var dateView: UIDatePicker!
     @IBOutlet weak var urlTextField: UITextField!
-    let dateFormatter = NSDateFormatter()
     var photoUrl = ""
     var username = ""
-    var forDate = ""
     
     @IBAction func postButton(sender: UIButton) {
-        
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        forDate = dateFormatter.stringFromDate(dateView.date)
         
         Alamofire.request(.GET, urlTextField.text )
             .responseString { (request, response, string, error) in
@@ -45,7 +41,7 @@ class ViewController: UIViewController {
                 
                 let parameters : [ String : AnyObject] = [
                     "URL": self.photoUrl,
-                    "forDate": self.forDate,
+                    "forDate": self.chosenDate,
                     "IGUsername": self.username
                 ]
                 

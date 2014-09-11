@@ -16,12 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="kM1-CZ-NlJ">
-                                <rect key="frame" x="0.0" y="70" width="320" height="162"/>
-                                <date key="date" timeIntervalSinceReferenceDate="431958439.731857">
-                                    <!--2014-09-09 12:27:19 +0000-->
-                                </date>
-                            </datePicker>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7l3-fV-xs8">
                                 <rect key="frame" x="71" y="240" width="171" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -51,7 +45,6 @@
                         <size key="landscapeSize" width="568" height="320"/>
                     </simulatedScreenMetrics>
                     <connections>
-                        <outlet property="dateView" destination="kM1-CZ-NlJ" id="5fj-3p-Hmi"/>
                         <outlet property="urlTextField" destination="7l3-fV-xs8" id="hwc-R2-3dS"/>
                     </connections>
                 </viewController>
