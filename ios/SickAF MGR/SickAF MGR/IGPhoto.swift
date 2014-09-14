@@ -12,10 +12,12 @@ class IGPhoto: NSObject {
     var url: String?
     var username: String?
     var objectId: String?
+    var photoNum: Int?
     
-    init(url: String, username: String, objectId: String) {
+    init(url: String, username: String, objectId: String, photoNum: Int) {
         self.url = url
         self.username = username
         self.objectId = objectId
+        self.photoNum = photoNum
     }
 }

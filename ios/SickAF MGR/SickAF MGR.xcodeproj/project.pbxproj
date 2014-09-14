@@ -41,6 +41,9 @@
 		7F0C77C019C09B9500E2C44C /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C77B619C09B9500E2C44C /* UIProgressView+AFNetworking.m */; };
 		7F0C77C119C09B9500E2C44C /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C77B819C09B9500E2C44C /* UIRefreshControl+AFNetworking.m */; };
 		7F0C77C219C09B9500E2C44C /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C77BA19C09B9500E2C44C /* UIWebView+AFNetworking.m */; };
+		7FBE0F6319C5EBB400319B9C /* BMYCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE0F5C19C5EBB400319B9C /* BMYCircularProgressView.m */; };
+		7FBE0F6419C5EBB400319B9C /* BMYPullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE0F6019C5EBB400319B9C /* BMYPullToRefreshView.m */; };
+		7FBE0F6519C5EBB400319B9C /* UIScrollView+BMYPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE0F6219C5EBB400319B9C /* UIScrollView+BMYPullToRefresh.m */; };
 		820EE7CF19BF21BD00F7D97C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EE7CE19BF21BD00F7D97C /* AppDelegate.swift */; };
 		820EE7D119BF21BD00F7D97C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EE7D019BF21BD00F7D97C /* ViewController.swift */; };
 		820EE7D419BF21BD00F7D97C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 820EE7D219BF21BD00F7D97C /* Main.storyboard */; };
@@ -134,6 +137,14 @@
 		7F0C77B819C09B9500E2C44C /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		7F0C77B919C09B9500E2C44C /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		7F0C77BA19C09B9500E2C44C /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		7FBE0F5919C5EBB400319B9C /* BMYCircularProgressPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMYCircularProgressPullToRefresh.h; path = PTR/BMYCircularProgressPullToRefresh.h; sourceTree = "<group>"; };
+		7FBE0F5B19C5EBB400319B9C /* BMYCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMYCircularProgressView.h; sourceTree = "<group>"; };
+		7FBE0F5C19C5EBB400319B9C /* BMYCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMYCircularProgressView.m; sourceTree = "<group>"; };
+		7FBE0F5D19C5EBB400319B9C /* BMYProgressViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMYProgressViewProtocol.h; path = PTR/BMYProgressViewProtocol.h; sourceTree = "<group>"; };
+		7FBE0F5F19C5EBB400319B9C /* BMYPullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMYPullToRefreshView.h; sourceTree = "<group>"; };
+		7FBE0F6019C5EBB400319B9C /* BMYPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMYPullToRefreshView.m; sourceTree = "<group>"; };
+		7FBE0F6119C5EBB400319B9C /* UIScrollView+BMYPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+BMYPullToRefresh.h"; sourceTree = "<group>"; };
+		7FBE0F6219C5EBB400319B9C /* UIScrollView+BMYPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+BMYPullToRefresh.m"; sourceTree = "<group>"; };
 		820EE7C919BF21BD00F7D97C /* SickAF MGR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SickAF MGR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		820EE7CD19BF21BD00F7D97C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		820EE7CE19BF21BD00F7D97C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -228,6 +239,39 @@
 			path = "Frameworks/AFNetworking/UIKit+AFNetworking";
 			sourceTree = "<group>";
 		};
+		7FBE0F5819C5EB7B00319B9C /* ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE0F5919C5EBB400319B9C /* BMYCircularProgressPullToRefresh.h */,
+				7FBE0F5A19C5EBB400319B9C /* BMYCircularProgressView */,
+				7FBE0F5D19C5EBB400319B9C /* BMYProgressViewProtocol.h */,
+				7FBE0F5E19C5EBB400319B9C /* BMYPullToRefreshView */,
+			);
+			name = ObjC;
+			sourceTree = "<group>";
+		};
+		7FBE0F5A19C5EBB400319B9C /* BMYCircularProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE0F5B19C5EBB400319B9C /* BMYCircularProgressView.h */,
+				7FBE0F5C19C5EBB400319B9C /* BMYCircularProgressView.m */,
+			);
+			name = BMYCircularProgressView;
+			path = PTR/BMYCircularProgressView;
+			sourceTree = "<group>";
+		};
+		7FBE0F5E19C5EBB400319B9C /* BMYPullToRefreshView */ = {
+			isa = PBXGroup;
+			children = (
+				7FBE0F5F19C5EBB400319B9C /* BMYPullToRefreshView.h */,
+				7FBE0F6019C5EBB400319B9C /* BMYPullToRefreshView.m */,
+				7FBE0F6119C5EBB400319B9C /* UIScrollView+BMYPullToRefresh.h */,
+				7FBE0F6219C5EBB400319B9C /* UIScrollView+BMYPullToRefresh.m */,
+			);
+			name = BMYPullToRefreshView;
+			path = PTR/BMYPullToRefreshView;
+			sourceTree = "<group>";
+		};
 		820EE7C019BF21BD00F7D97C = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +294,7 @@
 		820EE7CB19BF21BD00F7D97C /* SickAF MGR */ = {
 			isa = PBXGroup;
 			children = (
+				7FBE0F5819C5EB7B00319B9C /* ObjC */,
 				820EE7CE19BF21BD00F7D97C /* AppDelegate.swift */,
 				820EE7D019BF21BD00F7D97C /* ViewController.swift */,
 				7F0C776219C06D4D00E2C44C /* HomeViewController.swift */,
@@ -460,9 +505,12 @@
 				7F0C77BE19C09B9500E2C44C /* UIButton+AFNetworking.m in Sources */,
 				7F0C77BF19C09B9500E2C44C /* UIImageView+AFNetworking.m in Sources */,
 				7F0C776F19C084CB00E2C44C /* IGPhoto.swift in Sources */,
+				7FBE0F6419C5EBB400319B9C /* BMYPullToRefreshView.m in Sources */,
 				7F0C776319C06D4D00E2C44C /* HomeViewController.swift in Sources */,
 				7F0C77BD19C09B9500E2C44C /* UIAlertView+AFNetworking.m in Sources */,
 				7F0C77C219C09B9500E2C44C /* UIWebView+AFNetworking.m in Sources */,
+				7FBE0F6519C5EBB400319B9C /* UIScrollView+BMYPullToRefresh.m in Sources */,
+				7FBE0F6319C5EBB400319B9C /* BMYCircularProgressView.m in Sources */,
 				7F0C77BC19C09B9500E2C44C /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				7F0C77A119C09B8B00E2C44C /* AFHTTPRequestOperationManager.m in Sources */,
 				7F0C77C119C09B9500E2C44C /* UIRefreshControl+AFNetworking.m in Sources */,
