@@ -12,17 +12,18 @@ import Foundation
 
 
 
-class ViewController: UIViewController {
-    
+class ViewController: UIViewController, UIPickerViewDelegate {
     var chosenDate: NSString! = ""
                             
+    @IBOutlet var categoryPickerView: UIPickerView!
     @IBOutlet weak var urlTextField: UITextField!
     var photoUrl = ""
     var username = ""
     
     @IBAction func postButton(sender: UIButton) {
+
         
-        Alamofire.request(.GET, urlTextField.text )
+        Alamofire.request(.GET, urlTextField.text)
             .responseString { (request, response, string, error) in
                 var responseString = string!
                 var testVar : Int
@@ -42,7 +43,8 @@ class ViewController: UIViewController {
                 let parameters : [ String : AnyObject] = [
                     "URL": self.photoUrl,
                     "forDate": self.chosenDate,
-                    "IGUsername": self.username
+                    "IGUsername": self.username,
+                    "imageCategory": self.categoryPickerView.selectedRowInComponent(0)
                 ]
                 
                 Alamofire.request(.POST, "https://api.parse.com/1/classes/IGPhoto", parameters: parameters, encoding: .JSON)
@@ -56,7 +58,38 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.categoryPickerView.delegate = self
+    
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView!) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView!, numberOfRowsInComponent component: Int) -> Int {
+        return 2
+    }
+    
+    func pickerView(pickerView: UIPickerView!, titleForRow row: Int, forComponent component: Int) -> String
+    {
+        if (row == 0)
+        {
+            return "girls"
+
+        } else if (row == 1)
+        {
+            return "animals"
+        } else
+        {
+            return "you shouldnt see this..."
+        }
+    }
+
+    func textFieldShouldReturn(textField: UITextField!) -> Bool // called when 'return' key pressed. return NO to ignore.
+    {
+        textField.resignFirstResponder()
+        return true;
     }
 
     override func didReceiveMemoryWarning() {
