@@ -59,6 +59,7 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.categoryPickerView.delegate = self
+        self.urlTextField.becomeFirstResponder()
     
         // Do any additional setup after loading the view, typically from a nib.
     }
