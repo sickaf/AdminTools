@@ -44,7 +44,8 @@ class ViewController: UIViewController, UIPickerViewDelegate {
                     "URL": self.photoUrl,
                     "forDate": self.chosenDate,
                     "IGUsername": self.username,
-                    "imageCategory": self.categoryPickerView.selectedRowInComponent(0)
+                    "imageCategory": self.categoryPickerView.selectedRowInComponent(0),
+                    "PhotoNum": 0
                 ]
                 
                 Alamofire.request(.POST, "https://api.parse.com/1/classes/IGPhoto", parameters: parameters, encoding: .JSON)
