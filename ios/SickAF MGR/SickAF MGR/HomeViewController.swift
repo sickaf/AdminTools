@@ -14,6 +14,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableView: UITableView!
     
     var data: [IGPhoto] = []
+    var grin = []
     var dateString: String = ""
     let dateFormatter = NSDateFormatter()
 
@@ -22,11 +23,20 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         self.tableView.allowsMultipleSelectionDuringEditing = false
         
-
         dateFormatter.dateFormat = "yyyy-MM-dd"
         changeToDate(NSDate())
         
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
+        self.tableView.setPullToRefreshWithHeight(60, actionHandler: { (refresher: BMYPullToRefreshView!) -> Void in
+            self.refresh()
+        })
+    }
+    
+    // MARK: Methods
+    
+    func refresh() {
+        changeToDate(NSDate())
     }
     
     // MARK: Table View Data Source
@@ -58,7 +68,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         var myStrUser = currentObject["IGUsername"] as String
                         var myStrUrl = currentObject["URL"] as String
                         println("deleting current obj posted by: \(myStrUser) at \(myStrUrl)")
-                        currentObject.deleteInBackground()
+                        currentObject.deleteInBackgroundWithBlock({ (success: Bool, error: NSError!) -> Void in
+                            if (success) {
+                                
+                                self.data.removeAtIndex(indexPath.row);
+                                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                                
+                            }
+                        })
                     }
                     self.tableView.reloadData()
                 }
@@ -86,10 +103,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     let retrievedUrl = currentObject["URL"] as String
                     let retrievedUsername = currentObject["IGUsername"] as String
                     let retrievedObjectId = currentObject.objectId
-                    let photo = IGPhoto( url: retrievedUrl, username: retrievedUsername, objectId: retrievedObjectId)
+                    let retrievedPhotoNum = currentObject["PhotoNum"] as Int
+                    let photo = IGPhoto( url: retrievedUrl, username: retrievedUsername, objectId: retrievedObjectId, photoNum: retrievedPhotoNum)
                     self.data.append(photo)
+                                        
+                    self.data.sort({ $0.photoNum < $1.photoNum })
                 }
                 self.tableView.reloadData()
+                self.tableView.pullToRefreshView.stopAnimating()
             }
         }
     }
