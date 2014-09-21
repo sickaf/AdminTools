@@ -45,8 +45,7 @@ class ViewController: UIViewController, UIPickerViewDelegate {
                     "forDate": self.chosenDate,
                     "IGUsername": self.username,
                     "imageCategory": self.categoryPickerView.selectedRowInComponent(0),
-                    "addedBy": self.categoryPickerView.selectedRowInComponent(1)
-                    "imageCategory": self.categoryPickerView.selectedRowInComponent(0),
+                    "addedBy": self.categoryPickerView.selectedRowInComponent(1),
                     "PhotoNum": 0
                 ]
                 
