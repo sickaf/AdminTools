@@ -46,6 +46,8 @@
 		820EE7D419BF21BD00F7D97C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 820EE7D219BF21BD00F7D97C /* Main.storyboard */; };
 		820EE7D619BF21BD00F7D97C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 820EE7D519BF21BD00F7D97C /* Images.xcassets */; };
 		820EE7E219BF21BD00F7D97C /* SickAF_MGRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EE7E119BF21BD00F7D97C /* SickAF_MGRTests.swift */; };
+		821BFAC119C8FB6600A0CE65 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8267AAEE19BF28AE005E2D58 /* Alamofire.framework */; };
+		821BFAC219C8FB6600A0CE65 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8267AAEE19BF28AE005E2D58 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 820EE7C819BF21BD00F7D97C;
 			remoteInfo = "SickAF MGR";
+		};
+		821BFAC319C8FB6600A0CE65 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8267AAE819BF28AE005E2D58 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = Alamofire;
 		};
 		8267AAED19BF28AE005E2D58 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -78,6 +87,20 @@
 			remoteInfo = Alamofire;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		821BFAC519C8FB6600A0CE65 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				821BFAC219C8FB6600A0CE65 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7F0C776219C06D4D00E2C44C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +176,7 @@
 			files = (
 				7F0C778B19C08BA300E2C44C /* SystemConfiguration.framework in Frameworks */,
 				7F0C778919C08B9C00E2C44C /* StoreKit.framework in Frameworks */,
+				821BFAC119C8FB6600A0CE65 /* Alamofire.framework in Frameworks */,
 				7F0C778719C08B9700E2C44C /* Security.framework in Frameworks */,
 				7F0C778519C08B9300E2C44C /* QuartzCore.framework in Frameworks */,
 				7F0C778319C08B8E00E2C44C /* MobileCoreServices.framework in Frameworks */,
@@ -331,11 +355,13 @@
 				820EE7C519BF21BD00F7D97C /* Sources */,
 				820EE7C619BF21BD00F7D97C /* Frameworks */,
 				820EE7C719BF21BD00F7D97C /* Resources */,
+				821BFAC519C8FB6600A0CE65 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				8267AAF219BF28DC005E2D58 /* PBXTargetDependency */,
+				821BFAC419C8FB6600A0CE65 /* PBXTargetDependency */,
 			);
 			name = "SickAF MGR";
 			productName = "SickAF MGR";
@@ -487,6 +513,11 @@
 			isa = PBXTargetDependency;
 			target = 820EE7C819BF21BD00F7D97C /* SickAF MGR */;
 			targetProxy = 820EE7DC19BF21BD00F7D97C /* PBXContainerItemProxy */;
+		};
+		821BFAC419C8FB6600A0CE65 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			targetProxy = 821BFAC319C8FB6600A0CE65 /* PBXContainerItemProxy */;
 		};
 		8267AAF219BF28DC005E2D58 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

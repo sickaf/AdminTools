@@ -44,7 +44,8 @@ class ViewController: UIViewController, UIPickerViewDelegate {
                     "URL": self.photoUrl,
                     "forDate": self.chosenDate,
                     "IGUsername": self.username,
-                    "imageCategory": self.categoryPickerView.selectedRowInComponent(0)
+                    "imageCategory": self.categoryPickerView.selectedRowInComponent(0),
+                    "addedBy": self.categoryPickerView.selectedRowInComponent(1)
                 ]
                 
                 Alamofire.request(.POST, "https://api.parse.com/1/classes/IGPhoto", parameters: parameters, encoding: .JSON)
@@ -64,26 +65,36 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    @IBAction func tapGesture(sender: AnyObject) {
+        println("im gay")
+    }
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView!) -> Int {
-        return 1
+        return 2
     }
     
     func pickerView(pickerView: UIPickerView!, numberOfRowsInComponent component: Int) -> Int {
-        return 2
+        return 3
     }
     
     func pickerView(pickerView: UIPickerView!, titleForRow row: Int, forComponent component: Int) -> String
     {
-        if (row == 0)
-        {
-            return "girls"
-
-        } else if (row == 1)
-        {
-            return "animals"
-        } else
-        {
-            return "you shouldnt see this..."
+        switch component {
+        case 0 :
+            switch row {
+            case 0 : return "girls"
+            case 1 : return "guys"
+            case 2 : return "animals"
+            default : return "error"
+            }
+        case 1 :
+            switch row {
+            case 0 : return "devon"
+            case 1 : return "cody"
+            case 2 : return "nick"
+            default : return "error"
+            }
+        default : return "error"
         }
     }
 
