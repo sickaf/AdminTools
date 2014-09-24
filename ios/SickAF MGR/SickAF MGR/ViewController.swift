@@ -63,9 +63,8 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         self.categoryPickerView.delegate = self
         self.urlTextField.becomeFirstResponder()
     
-        // Do any additional setup after loading the view, typically from a nib.
     }
-    
+        
     @IBAction func tapGesture(sender: AnyObject) {
         println("im gay")
     }
@@ -104,7 +103,7 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         textField.resignFirstResponder()
         return true;
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

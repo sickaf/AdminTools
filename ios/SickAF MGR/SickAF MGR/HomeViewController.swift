@@ -39,6 +39,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         changeToDate(NSDate())
     }
     
+
     // MARK: Table View Data Source
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,7 +63,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
                 
                 //  delete image with the specified objectId
-                if (error == nil) {
+                if (error == nil) { // TODO: handle bad data better
                     for object in objects {
                         let currentObject = object as PFObject
                         var myStrUser = currentObject["IGUsername"] as String
@@ -106,7 +107,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     let retrievedPhotoNum = currentObject["PhotoNum"] as Int
                     let photo = IGPhoto( url: retrievedUrl, username: retrievedUsername, objectId: retrievedObjectId, photoNum: retrievedPhotoNum)
                     self.data.append(photo)
-                                        
+                    
                     self.data.sort({ $0.photoNum < $1.photoNum })
                 }
                 self.tableView.reloadData()
