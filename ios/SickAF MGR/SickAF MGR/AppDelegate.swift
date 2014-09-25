@@ -54,22 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 
         }
-    }
-    /*
-    func myMethod()
-    {
-        PFUser.logInWithUsernameInBackground("admin", password:"meat69spin") {
-            (user: PFUser!, error: NSError!) -> Void in
-            if user != nil {
-                println("login succeeded!!!")
-                // Do stuff after successful login.
-            } else {
-                println("login failed :(")
-                // The login failed. Check error to see why.
-            }
-        }
-    }*/
-    
+    }    
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
