@@ -29,4 +29,11 @@ class ImagePreviewTableViewCell: UITableViewCell {
         iconImageView.setImageWithURL(nil)
         iconImageView.image = nil
     }
+    
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        UIView.animateWithDuration(animated ? 0.2 : 0, animations: { () -> Void in
+            self.usernameLabel.alpha = editing ? 0 : 1
+        })
+    }
 }

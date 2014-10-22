@@ -13,8 +13,7 @@ import Alamofire
 class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
-    var sessionToken = "gay"
-
+    var sessionToken = "lol"
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {

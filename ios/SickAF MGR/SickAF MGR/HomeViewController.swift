@@ -20,15 +20,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let dateFormatter = NSDateFormatter()
     var date = NSDate()
     var refreshControl:UIRefreshControl!
+    var leftButton: UIBarButtonItem!
     var loading = false
-//    var leftButton = UIBarButtonItem(title: "Edit", style: .Plain, target: self, action: "pressedEdit:")
-
+    var hasChanged = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.allowsMultipleSelectionDuringEditing = false
-        
-//        self.navigationItem.leftBarButtonItem = leftButton
+        self.leftButton = UIBarButtonItem(title: "Edit", style: .Plain, target: self, action: "pressedEdit:")
+        self.navigationItem.leftBarButtonItem = self.leftButton
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
         changeToDate(NSDate())
@@ -99,48 +100,28 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         photoArray.removeAtIndex(sourceIndexPath.row)
         photoArray.insert(photo1, atIndex: destinationIndexPath.row)
         
-        for (index, element) in enumerate(photoArray) {
-            element.photoNum = index
-            for obj in self.parseObjects {
-                if (obj.objectId == element.objectId) {
-                    obj["PhotoNum"] = element.photoNum
-                }
-            }
-            PFObject.saveAllInBackground(self.parseObjects)
-        }
-        
         self.data[key] = photoArray
+        
+        self.hasChanged = true
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
     {
         if editingStyle == UITableViewCellEditingStyle.Delete
         {
-//            var objId = self.data[indexPath.row].objectId
-//            var query = PFQuery(className: "IGPhoto")
-//            query.whereKey("objectId", equalTo: objId)
-//            query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
-//                
-//                //  delete image with the specified objectId
-//                if (error == nil) // TODO: handle bad data better
-//                {
-//                    for object in objects
-//                    {
-//                        let currentObject = object as PFObject
-//                        var myStrUser = currentObject["IGUsername"] as String
-//                        var myStrUrl = currentObject["URL"] as String
-//                        println("deleting current obj posted by: \(myStrUser) at \(myStrUrl)")
-//                        currentObject.deleteInBackgroundWithBlock({ (success: Bool, error: NSError!) -> Void in
-//                            if (success)
-//                            {
-//                                self.data.removeAtIndex(indexPath.row);
-//                                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-//                            }
-//                        })
-//                    }
-//                    self.tableView.reloadData()
-//                }
-//            }
+            let key = data.keys.array[indexPath.section]
+            var photoArray = data[key]!
+            let photo = photoArray[indexPath.row]
+            
+            for (ind, pPhoto) in enumerate(self.parseObjects) {
+                if (pPhoto.objectId == photo.objectId) {
+                    pPhoto.deleteInBackground();
+                    self.parseObjects.removeAtIndex(ind)
+                    photoArray.removeAtIndex(indexPath.row)
+                    self.data[key] = photoArray
+                    self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                }
+            }
         }
     }
     
@@ -152,9 +133,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     // MARK: Helpers
     
+    func startLoading() {
+        self.loading = true
+    }
+    
+    func stopLoading() {
+        self.loading = false
+        self.tableView.reloadData()
+        self.refreshControl.endRefreshing()
+    }
+    
     func getDataForDate(date: String) {
         
-        loading = true
+        startLoading()
         
         // Setup query for Instagram pics
         var query = PFQuery(className: "IGPhoto")
@@ -164,7 +155,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             // Remove everything from tableview
             self.data.removeAll(keepCapacity: false)
             self.parseObjects.removeAll(keepCapacity: false)
-            self.loading = false
             
             // Add images to array and refresh tableview
             if (error == nil) {
@@ -188,9 +178,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         self.data[category] = newArray
                     }
                 }
-                self.tableView.reloadData()
             }
-            self.refreshControl.endRefreshing()
+            self.stopLoading()
         }
     }
     
@@ -206,6 +195,21 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         self.navigationItem.titleView = titleButton
         getDataForDate(self.dateString)
+    }
+    
+    func saveAllObjectsWithNewIndexes()
+    {
+        for (cat, photos) in self.data {
+            for (ind, photo) in enumerate(photos) {
+                for obj in self.parseObjects {
+                    if (obj.objectId == photo.objectId) {
+                        obj["PhotoNum"] = ind
+                    }
+                }
+            }
+        }
+        
+        PFObject.saveAllInBackground(self.parseObjects)
     }
     
     // MARK: Date Picker Delegate
@@ -228,7 +232,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func pressedEdit(sender: AnyObject)
     {
-//        self.navigationItem.leftBarButtonItem.
+        if (self.loading) { return }
+        if (self.tableView.editing) {
+            self.leftButton.title = "Edit";
+            if (self.hasChanged) {
+                // save new indexes if something has changed
+                saveAllObjectsWithNewIndexes()
+                self.hasChanged = false
+            }
+        }
+        else {
+            self.leftButton.title = "Done";
+        }
+        
         self.tableView.setEditing(!self.tableView.editing, animated: true)
     }
     
