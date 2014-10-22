@@ -13,27 +13,45 @@ class DatePickerViewController: UIViewController {
     var delegate: DatePickerDelegate?
     
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var bgView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.view.backgroundColor = UIColor.clearColor()
+        self.bgView.backgroundColor = UIColor(white: 0, alpha: 0.8)
+        self.bgView.alpha = 0
+        self.topConstraint.constant -= self.containerView.frame.size.height
+        self.view.layoutIfNeeded()
     }
     
-    @IBAction func pressedDone(sender: UIDatePicker) {
-        delegate?.datePicked(datePicker.date)
+    override func viewDidAppear(animated: Bool) {
+        self.topConstraint.constant = -20
+        UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.6, options: UIViewAnimationOptions.CurveEaseInOut, animations: ({
+            self.view.layoutIfNeeded()
+            self.bgView.alpha = 1
+        }), completion: nil)
     }
     
-    @IBAction func pressedX(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func dismiss() {
+        self.delegate?.switchedToDate(self.datePicker.date)
+        self.topConstraint.constant -= self.containerView.frame.size.height
+        UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.6, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+            self.view.layoutIfNeeded()
+            self.bgView.alpha = 0;
+        }, completion: {
+            (value: Bool) in
+            self.testfunc()
+        })
+    }
+    
+    func testfunc() {
+        self.delegate?.datePickerDismiss()
     }
 }
 
 protocol DatePickerDelegate {
-    func datePicked(date: NSDate)
+    func switchedToDate(date: NSDate)
+    func datePickerDismiss()
 }

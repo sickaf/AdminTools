@@ -29,7 +29,7 @@
         <!--Home View Controller-->
         <scene sceneID="0xa-N0-VHt">
             <objects>
-                <viewController id="wGm-V8-dn0" customClass="HomeViewController" customModule="SickAF_MGR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wGm-V8-dn0" customClass="HomeViewController" customModule="WC_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A00-b9-5WJ"/>
                         <viewControllerLayoutGuide type="bottom" id="kYM-DC-HY1"/>
@@ -42,7 +42,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="zBY-Ud-day" customClass="ImagePreviewTableViewCell" customModule="SickAF_MGR" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="zBY-Ud-day" customClass="ImagePreviewTableViewCell" customModule="WC_Manager" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zBY-Ud-day" id="WOL-DC-RuO">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -185,7 +185,7 @@
         <!--Choose Date-->
         <scene sceneID="lXb-Au-Wzn">
             <objects>
-                <viewController id="4EQ-RW-PQJ" customClass="DatePickerViewController" customModule="SickAF_MGR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="date" id="4EQ-RW-PQJ" customClass="DatePickerViewController" customModule="WC_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gI4-Hp-Edt"/>
                         <viewControllerLayoutGuide type="bottom" id="zAv-Qi-maQ"/>
@@ -194,90 +194,105 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="GRc-7s-WSi">
-                                <rect key="frame" x="-160" y="-81" width="320" height="162"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zDU-s8-gr0" userLabel="bg">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dh0-iP-9SF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="GRc-7s-WSi">
+                                        <rect key="frame" x="-160" y="-81" width="320" height="162"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="216" id="skd-Fi-WdN"/>
+                                        </constraints>
+                                        <date key="date" timeIntervalSinceReferenceDate="432045539.84666002">
+                                            <!--2014-09-10 12:38:59 +0000-->
+                                        </date>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="skd-Fi-WdN"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="skd-Fi-WdN"/>
+                                            </mask>
+                                        </variation>
+                                    </datePicker>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="IHY-xN-VHP"/>
-                                </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="432045539.84666002">
-                                    <!--2014-09-10 12:38:59 +0000-->
-                                </date>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="IHY-xN-VHP"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="IHY-xN-VHP"/>
-                                    </mask>
-                                </variation>
-                            </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ld9-T9-fzg">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="152" id="KD8-nq-ylO">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="368"/>
+                                    <constraint firstAttribute="width" secondItem="GRc-7s-WSi" secondAttribute="width" id="9Lr-BG-9Iy"/>
+                                    <constraint firstAttribute="centerX" secondItem="GRc-7s-WSi" secondAttribute="centerX" id="FE1-cD-sdu"/>
+                                    <constraint firstAttribute="height" constant="334" id="Mgy-HT-iRt">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="239"/>
                                     </constraint>
-                                    <constraint firstAttribute="height" constant="91" id="ee1-qL-7gb"/>
+                                    <constraint firstAttribute="centerY" secondItem="GRc-7s-WSi" secondAttribute="centerY" constant="-0.5" id="VYW-zz-N4f"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Choose">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                                 <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="GRc-7s-WSi"/>
+                                    </mask>
                                     <mask key="constraints">
-                                        <exclude reference="KD8-nq-ylO"/>
-                                        <exclude reference="ee1-qL-7gb"/>
+                                        <exclude reference="Mgy-HT-iRt"/>
+                                        <exclude reference="9Lr-BG-9Iy"/>
+                                        <exclude reference="FE1-cD-sdu"/>
+                                        <exclude reference="VYW-zz-N4f"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="GRc-7s-WSi"/>
+                                    </mask>
                                     <mask key="constraints">
-                                        <include reference="KD8-nq-ylO"/>
-                                        <include reference="ee1-qL-7gb"/>
+                                        <include reference="Mgy-HT-iRt"/>
+                                        <include reference="9Lr-BG-9Iy"/>
+                                        <include reference="FE1-cD-sdu"/>
+                                        <include reference="VYW-zz-N4f"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <action selector="pressedDone:" destination="4EQ-RW-PQJ" eventType="touchUpInside" id="NFo-4e-qd4"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="GRc-7s-WSi" secondAttribute="centerX" id="0uI-OQ-MdH"/>
-                            <constraint firstItem="Ld9-T9-fzg" firstAttribute="centerX" secondItem="GRc-7s-WSi" secondAttribute="centerX" id="M0D-wc-Sq9"/>
-                            <constraint firstAttribute="centerY" secondItem="GRc-7s-WSi" secondAttribute="centerY" constant="106" id="P7U-He-sMH">
-                                <variation key="heightClass=regular-widthClass=compact" constant="96"/>
-                            </constraint>
-                            <constraint firstAttribute="width" secondItem="GRc-7s-WSi" secondAttribute="width" id="R2y-6v-p2k"/>
-                            <constraint firstItem="Ld9-T9-fzg" firstAttribute="top" secondItem="GRc-7s-WSi" secondAttribute="bottom" constant="44" id="gSa-yt-Etn">
-                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
-                            </constraint>
+                            <constraint firstItem="zDU-s8-gr0" firstAttribute="height" secondItem="lYC-3Y-fF7" secondAttribute="height" id="0K9-vF-uOa"/>
+                            <constraint firstAttribute="centerX" secondItem="dh0-iP-9SF" secondAttribute="centerX" id="6Ut-3w-8h7"/>
+                            <constraint firstItem="zDU-s8-gr0" firstAttribute="width" secondItem="lYC-3Y-fF7" secondAttribute="width" id="D8P-OG-eTe"/>
+                            <constraint firstAttribute="centerY" secondItem="zDU-s8-gr0" secondAttribute="centerY" id="Hjo-Eu-t9z"/>
+                            <constraint firstItem="dh0-iP-9SF" firstAttribute="top" secondItem="gI4-Hp-Edt" secondAttribute="bottom" constant="-20" id="Pp7-ov-hNd"/>
+                            <constraint firstItem="dh0-iP-9SF" firstAttribute="width" secondItem="lYC-3Y-fF7" secondAttribute="width" id="koG-n1-L6Z"/>
+                            <constraint firstAttribute="centerX" secondItem="zDU-s8-gr0" secondAttribute="centerX" id="nCy-MR-anA"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="GRc-7s-WSi"/>
-                                <exclude reference="Ld9-T9-fzg"/>
+                                <exclude reference="zDU-s8-gr0"/>
+                                <exclude reference="dh0-iP-9SF"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="M0D-wc-Sq9"/>
-                                <exclude reference="gSa-yt-Etn"/>
-                                <exclude reference="0uI-OQ-MdH"/>
-                                <exclude reference="P7U-He-sMH"/>
-                                <exclude reference="R2y-6v-p2k"/>
+                                <exclude reference="6Ut-3w-8h7"/>
+                                <exclude reference="Pp7-ov-hNd"/>
+                                <exclude reference="koG-n1-L6Z"/>
+                                <exclude reference="0K9-vF-uOa"/>
+                                <exclude reference="D8P-OG-eTe"/>
+                                <exclude reference="Hjo-Eu-t9z"/>
+                                <exclude reference="nCy-MR-anA"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="GRc-7s-WSi"/>
-                                <include reference="Ld9-T9-fzg"/>
+                                <include reference="zDU-s8-gr0"/>
+                                <include reference="dh0-iP-9SF"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="M0D-wc-Sq9"/>
-                                <include reference="gSa-yt-Etn"/>
-                                <include reference="0uI-OQ-MdH"/>
-                                <include reference="P7U-He-sMH"/>
-                                <include reference="R2y-6v-p2k"/>
+                                <include reference="6Ut-3w-8h7"/>
+                                <include reference="Pp7-ov-hNd"/>
+                                <include reference="koG-n1-L6Z"/>
+                                <include reference="0K9-vF-uOa"/>
+                                <include reference="D8P-OG-eTe"/>
+                                <include reference="Hjo-Eu-t9z"/>
+                                <include reference="nCy-MR-anA"/>
                             </mask>
                         </variation>
                     </view>
@@ -289,32 +304,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bgView" destination="zDU-s8-gr0" id="A2b-3w-exW"/>
+                        <outlet property="containerView" destination="dh0-iP-9SF" id="m9t-4R-Pi6"/>
                         <outlet property="datePicker" destination="GRc-7s-WSi" id="g5q-uo-oyD"/>
+                        <outlet property="topConstraint" destination="Pp7-ov-hNd" id="viq-7I-G9R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQM-fu-rot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1308" y="416.25"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="TNw-BS-JCE">
-            <objects>
-                <navigationController storyboardIdentifier="dateNav" id="oJ6-E7-5NF" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="kae-2T-IyW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.46151995839999999" blue="0.26643677249999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="4EQ-RW-PQJ" kind="relationship" relationship="rootViewController" id="POT-uz-zCZ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="flS-ZW-z1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="631.5" y="416.25"/>
         </scene>
     </scenes>
 </document>

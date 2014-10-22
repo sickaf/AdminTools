@@ -18,11 +18,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var grin = []
     var dateString: String = ""
     let dateFormatter = NSDateFormatter()
-    var date = NSDate()
+    var date:NSDate!
     var refreshControl:UIRefreshControl!
     var leftButton: UIBarButtonItem!
     var loading = false
     var hasChanged = false
+    var datePicker:DatePickerViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -214,10 +215,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // MARK: Date Picker Delegate
     
-    func datePicked(date: NSDate)
+    func datePickerDismiss()
     {
+        self.datePicker.view.removeFromSuperview()
+        self.datePicker.willMoveToParentViewController(nil)
+        self.datePicker.removeFromParentViewController()
+        self.datePicker = nil
+    }
+    
+    func switchedToDate(date: NSDate) {
+        if let currentDate = self.date {
+            if (dateFormatter.stringFromDate(currentDate) == dateFormatter.stringFromDate(date)) { return }
+        }
         changeToDate(date)
-        self.dismissViewControllerAnimated(true, nil)
     }
     
     // MARK: Actions
@@ -250,10 +260,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tappedTitle(sender: AnyObject)
     {
-        let sb = UIStoryboard(name: "Home", bundle: NSBundle.mainBundle())
-        let navController = sb.instantiateViewControllerWithIdentifier("dateNav") as UINavigationController
-        let viewController = navController.topViewController as DatePickerViewController
-        viewController.delegate = self
-        self.presentViewController(navController, animated: true, completion: nil)
+        if (self.datePicker == nil) {
+            let sb = UIStoryboard(name: "Home", bundle: NSBundle.mainBundle())
+            let viewController = sb.instantiateViewControllerWithIdentifier("date") as DatePickerViewController
+            viewController.delegate = self
+            viewController.view.frame = self.view.bounds
+            self.addChildViewController(viewController)
+            self.view.addSubview(viewController.view)
+            viewController.didMoveToParentViewController(self)
+            self.datePicker = viewController
+        }
+        else {
+            self.datePicker.dismiss()
+        }
     }
 }
