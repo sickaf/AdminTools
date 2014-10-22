@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KpC-rE-Cbf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KpC-rE-Cbf">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -10,7 +10,7 @@
         <scene sceneID="dYf-6R-oSp">
             <objects>
                 <navigationController id="KpC-rE-Cbf" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BpK-g4-ryF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="BpK-g4-ryF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="0.46151995838801541" blue="0.26643677245690778" alpha="1" colorSpace="calibratedRGB"/>
@@ -35,7 +35,7 @@
                         <viewControllerLayoutGuide type="bottom" id="kYM-DC-HY1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="o7E-rI-hSK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3ce-ds-NSm">
@@ -71,7 +71,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="151" id="62Y-x4-RaB"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
@@ -79,8 +79,7 @@
                                                             <exclude reference="62Y-x4-RaB"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="143" y="40" width="151" height="21"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="62Y-x4-RaB"/>
                                                         </mask>
@@ -163,9 +162,9 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="47R-dd-bwr">
-                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="tAO-wb-gia">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="tAO-wb-gia">
                             <connections>
-                                <segue destination="oJ6-E7-5NF" kind="presentation" id="6Vi-I9-v7j"/>
+                                <action selector="pressedEdit:" destination="wGm-V8-dn0" id="hM9-PA-scv"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="DZ3-sj-96d">
@@ -300,8 +299,8 @@
         <!--Navigation Controller-->
         <scene sceneID="TNw-BS-JCE">
             <objects>
-                <navigationController id="oJ6-E7-5NF" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kae-2T-IyW">
+                <navigationController storyboardIdentifier="dateNav" id="oJ6-E7-5NF" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="kae-2T-IyW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="0.46151995839999999" blue="0.26643677249999997" alpha="1" colorSpace="calibratedRGB"/>

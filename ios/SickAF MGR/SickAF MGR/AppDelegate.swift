@@ -29,9 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         let applicationID = "p8AF2BKCLQ7fr3oJXPg43fOL6LXAK3mwAb5Ywnke"
         let restApiKey = "v8C3jQHw0b8JkoCMy3Vn9QgqLdl3F7TxptAKfSVx"
-
-        Alamofire.Manager.sharedInstance.defaultHeaders.updateValue(applicationID, forKey: "X-Parse-Application-Id")
-        Alamofire.Manager.sharedInstance.defaultHeaders.updateValue(restApiKey, forKey: "X-Parse-REST-API-Key")
+        
+        Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders?.updateValue(applicationID, forKey: "X-Parse-Application-Id")
+        Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders?.updateValue(restApiKey, forKey: "X-Parse-REST-API-Key")
 
         let userParameters : [ String : AnyObject] = [
             "username": "admin",

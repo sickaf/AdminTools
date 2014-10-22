@@ -24,8 +24,8 @@ class ViewController: UIViewController, UIPickerViewDelegate {
     {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let sessionToken = appDelegate.sessionToken
-        Alamofire.Manager.sharedInstance.defaultHeaders.updateValue(sessionToken, forKey: "X-Parse-Session-Token")
-
+        
+        Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders?.updateValue(sessionToken, forKey: "X-Parse-Session-Token")
 
             Alamofire.request(.GET, self.urlTextField.text) //get instagram stuff
                 .responseString { (request, response, string, error) in
