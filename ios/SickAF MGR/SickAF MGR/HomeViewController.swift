@@ -33,7 +33,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.navigationItem.leftBarButtonItem = self.leftButton
         
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        changeToDate(NSDate())
         
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
@@ -42,15 +41,23 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.tableView.addSubview(refreshControl)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if let user = PFUser.currentUser() {
+            self.changeToDate(NSDate(), clearTable: true)
+        }
+        else {
+            let sb = UIStoryboard(name: "Home", bundle: NSBundle.mainBundle())
+            let viewController = sb.instantiateViewControllerWithIdentifier("login") as LoginViewController
+            self.presentViewController(viewController, animated: false, completion: nil)
+        }
+    }
+    
     // MARK: Methods
     
     func pulledToRefresh() {
         if (loading) { return }
-        refresh()
-    }
-    
-    func refresh() {
-        changeToDate(self.date)
+        changeToDate(self.date, clearTable: false)
     }
     
     // MARK: Table View Data Source
@@ -79,6 +86,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         var cell: ImagePreviewTableViewCell! = tableView.dequeueReusableCellWithIdentifier("Cell") as ImagePreviewTableViewCell
         cell.showsReorderControl = true
         cell!.usernameLabel.text = photo.username!
+        let adminString = photo.addedBy
+        cell!.addedByLabel.text = "Added by: " + adminString!
         cell!.iconImageView.setImageWithURL(NSURL(string: photo.url!))
         
         return cell
@@ -144,9 +153,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.refreshControl.endRefreshing()
     }
     
-    func getDataForDate(date: String) {
+    func getDataForDate(date: String, clearTable: Bool) {
         
         startLoading()
+        if (clearTable) {
+            self.data.removeAll(keepCapacity: false)
+            self.tableView.reloadData()
+        }
         
         // Setup query for Instagram pics
         var query = PFQuery(className: "IGPhoto")
@@ -167,8 +180,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     let retrievedObjectId = currentObject.objectId
                     let retrievedPhotoNum = currentObject["PhotoNum"] as Int
                     let retrievedCategory = currentObject["imageCategory"] as Int
+                    let retrievedAdmin = currentObject["addedBy"] as String
                     let category = Category(rawValue: retrievedCategory)!
-                    let photo = IGPhoto( url: retrievedUrl, username: retrievedUsername, objectId: retrievedObjectId, photoNum: retrievedPhotoNum, category: category)
+                    let photo = IGPhoto( url: retrievedUrl, username: retrievedUsername, objectId: retrievedObjectId, photoNum: retrievedPhotoNum, category: category, addedBy : retrievedAdmin)
                     if var thisArray = self.data[category] {
                         thisArray.append(photo)
                         thisArray.sort({ $0.photoNum < $1.photoNum })
@@ -184,7 +198,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    func changeToDate(date: NSDate)
+    func changeToDate(date: NSDate, clearTable: Bool)
     {
         self.date = date
         self.dateString = dateFormatter.stringFromDate(date)
@@ -195,7 +209,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         titleButton.titleLabel?.font = UIFont.boldSystemFontOfSize(16)
         
         self.navigationItem.titleView = titleButton
-        getDataForDate(self.dateString)
+        getDataForDate(self.dateString, clearTable: clearTable)
     }
     
     func saveAllObjectsWithNewIndexes()
@@ -227,17 +241,86 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if let currentDate = self.date {
             if (dateFormatter.stringFromDate(currentDate) == dateFormatter.stringFromDate(date)) { return }
         }
-        changeToDate(date)
+        changeToDate(date, clearTable: true)
+    }
+    
+    func addImageWithURL(urlString:String, category:Category)
+    {
+        SVProgressHUD.showWithStatus("Getting Instagram info...")
+        Alamofire.request(.GET, urlString) //get instagram stuff
+            .responseString { (request, response, string, error) in
+                
+                if (error == nil) {
+                    SVProgressHUD.showWithStatus("Posting pic...")
+                    var responseString = string!
+                    var testVar : Int
+                    var userString = responseString
+                    responseString = responseString.componentsSeparatedByString("og:image\" content=\"")[1]
+                    responseString = responseString.componentsSeparatedByString("\"")[0]
+                    println("url: \(responseString)")
+                    
+                    userString = userString.componentsSeparatedByString("og:description\" content=\"")[1]
+                    userString = userString.componentsSeparatedByString("'")[0]
+                    println("username: \(userString)")
+                    
+                    var newPhoto = PFObject(className: "IGPhoto")
+                    
+                    newPhoto.setObject(responseString, forKey: "URL")
+                    newPhoto.setObject(self.dateFormatter.stringFromDate(self.date), forKey: "forDate")
+                    newPhoto.setObject(userString, forKey: "IGUsername")
+                    newPhoto.setObject(category.rawValue, forKey: "imageCategory")
+                    newPhoto.setObject(PFUser.currentUser().username, forKey: "addedBy")
+                    newPhoto.setObject(50, forKey: "PhotoNum")
+                    
+                    newPhoto.saveInBackgroundWithBlock({ (success:Bool, err:NSError!) -> Void in
+                        if let err = err {
+                            SVProgressHUD.dismiss()
+                            let alertController = UIAlertController(title: "Whoops", message: err.localizedDescription, preferredStyle: .Alert)
+                            let cancelAction = UIAlertAction(title: "OK", style: .Cancel) { (_) in }
+                            alertController.addAction(cancelAction)
+                            self.presentViewController(alertController, animated: true, completion: nil)
+                        }
+                        else {
+                            print("saved photo")
+                            SVProgressHUD.showSuccessWithStatus("Posted!")
+                            self.changeToDate(self.date, clearTable: true)
+                        }
+                    })
+                }
+        }
     }
     
     // MARK: Actions
     
     @IBAction func pressedAdd(sender: AnyObject)
     {
-        let st: UIStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        var vc: ViewController = st.instantiateInitialViewController() as ViewController
-        vc.chosenDate = dateString
-        self.navigationController?.pushViewController(vc, animated: true)
+        let alertController = UIAlertController(title: "Add Image", message: "", preferredStyle: .Alert)
+        
+        let postActionGirl = UIAlertAction(title: "Girl", style: .Default) { (_) in
+            let urlTextField = alertController.textFields![0] as UITextField
+            self.addImageWithURL(urlTextField.text, category: Category(rawValue: 0)!)
+        }
+        
+        let postActionGuy = UIAlertAction(title: "Guy", style: .Default) { (_) in
+            let urlTextField = alertController.textFields![0] as UITextField
+            self.addImageWithURL(urlTextField.text, category: Category(rawValue: 1)!)
+        }
+        let postActionAnimal = UIAlertAction(title: "Animal", style: .Default) { (_) in
+            let urlTextField = alertController.textFields![0] as UITextField
+            self.addImageWithURL(urlTextField.text, category: Category(rawValue: 2)!)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
+        
+        alertController.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = "Instagram URL"
+        }
+        
+        alertController.addAction(postActionGirl)
+        alertController.addAction(postActionGuy)
+        alertController.addAction(postActionAnimal)
+        alertController.addAction(cancelAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     @IBAction func pressedEdit(sender: AnyObject)
@@ -264,6 +347,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let sb = UIStoryboard(name: "Home", bundle: NSBundle.mainBundle())
             let viewController = sb.instantiateViewControllerWithIdentifier("date") as DatePickerViewController
             viewController.delegate = self
+            if let date = self.date {
+                viewController.startDate = date
+            }
             viewController.view.frame = self.view.bounds
             self.addChildViewController(viewController)
             self.view.addSubview(viewController.view)

@@ -8,6 +8,7 @@
 
 import UIKit
 
+// category enum
 enum Category : Int {
     case Girl = 0
     case Guy = 1
@@ -33,12 +34,14 @@ class IGPhoto: NSObject {
     var objectId: String?
     var photoNum: Int?
     var category: Category?
+    var addedBy: String?
     
-    init(url: String, username: String, objectId: String, photoNum: Int, category: Category) {
+    init(url: String, username: String, objectId: String, photoNum: Int, category: Category, addedBy: String) {
         self.url = url
         self.username = username
         self.objectId = objectId
         self.photoNum = photoNum
         self.category = category
+        self.addedBy = addedBy
     }
 }

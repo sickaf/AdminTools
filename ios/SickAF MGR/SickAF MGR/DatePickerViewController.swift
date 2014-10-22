@@ -11,6 +11,7 @@ import UIKit
 class DatePickerViewController: UIViewController {
     
     var delegate: DatePickerDelegate?
+    var startDate: NSDate?
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
@@ -24,6 +25,9 @@ class DatePickerViewController: UIViewController {
         self.bgView.alpha = 0
         self.topConstraint.constant -= self.containerView.frame.size.height
         self.view.layoutIfNeeded()
+        if let date = self.startDate {
+            self.datePicker.date = date
+        }
     }
     
     override func viewDidAppear(animated: Bool) {

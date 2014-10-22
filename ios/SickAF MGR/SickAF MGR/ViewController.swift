@@ -26,36 +26,6 @@ class ViewController: UIViewController, UIPickerViewDelegate {
         let sessionToken = appDelegate.sessionToken
         
         Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders?.updateValue(sessionToken, forKey: "X-Parse-Session-Token")
-
-            Alamofire.request(.GET, self.urlTextField.text) //get instagram stuff
-                .responseString { (request, response, string, error) in
-                var responseString = string!
-                var testVar : Int
-                var userString = responseString
-                responseString = responseString.componentsSeparatedByString("og:image\" content=\"")[1]
-                responseString = responseString.componentsSeparatedByString("\"")[0]
-                println("url: \(responseString)")
-                self.photoUrl = responseString
-                
-                userString = userString.componentsSeparatedByString("og:description\" content=\"")[1]
-                userString = userString.componentsSeparatedByString("'")[0]
-                println("username: \(userString)")
-                self.username = userString
-                
-                let parameters : [ String : AnyObject] = [
-                    "URL": self.photoUrl,
-                    "forDate": self.chosenDate,
-                    "IGUsername": self.username,
-                    "imageCategory": self.categoryPickerView.selectedRowInComponent(0),
-                    "addedBy": self.categoryPickerView.selectedRowInComponent(1).description,
-                    "PhotoNum": 50
-                ]
-                
-                Alamofire.request(.POST, "https://api.parse.com/1/classes/IGPhoto", parameters: parameters, encoding: .JSON) //put photo in parse
-                    .responseJSON { (request, response, JSON, error) in
-                        println("Parse response: \(JSON)")
-                }
-            }
         }
         
     override func viewDidLoad()

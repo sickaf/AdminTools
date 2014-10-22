@@ -12,6 +12,7 @@ class ImagePreviewTableViewCell: UITableViewCell {
 
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var addedByLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,6 +35,7 @@ class ImagePreviewTableViewCell: UITableViewCell {
         super.setEditing(editing, animated: animated)
         UIView.animateWithDuration(animated ? 0.2 : 0, animations: { () -> Void in
             self.usernameLabel.alpha = editing ? 0 : 1
+            self.addedByLabel.alpha = editing ? 0 : 1
         })
     }
 }
