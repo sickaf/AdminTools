@@ -14,6 +14,8 @@ class AddImageViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var tableView: UITableView!
     var chosenCategory:Category?
     var dateString:String?
+    let clientID = "c16a25899b924b27aaea9a83bf6e3a8f"
+    let getUsernameEndpoint: String = "https://api.instagram.com/v1/users/search"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +94,10 @@ class AddImageViewController: UIViewController, UITableViewDelegate, UITableView
                     }
                 }
             } else {
-                // Instagram Profile
+                let cell: TextFieldCell! = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as TextFieldCell
+                if let text = cell.textField.text {
+                    showIGProfileForUser(text)
+                }
             }
         }
     }
@@ -168,5 +173,46 @@ class AddImageViewController: UIViewController, UITableViewDelegate, UITableView
                     })
                 }
         }
+    }
+    
+    func showIGProfileForUser(username:String) {
+        
+        SVProgressHUD.showWithStatus("Finding user...")
+            Alamofire.request(.GET, getUsernameEndpoint, parameters: ["q":username, "count": 100, "client_id" : clientID])
+                .responseJSON { (request, response, jsonString, error) in
+                    
+                    if (jsonString == nil) { return }
+                    
+                    let json = JSON(jsonString!)
+                    
+                    // Check if user with exactly this username exists
+                    var mediaID:String?
+                    let result = json["data"]
+                    println(result)
+                    if let userArray = result.asArray {
+                        for user in userArray {
+                            let thisUsername = user["username"]
+                            if let u = thisUsername.asString {
+                                if (u == username) {
+                                    let idString = user["id"]
+                                    mediaID = idString.asString
+                                }
+                            }
+                        }
+                    }
+                    
+                    if let mID = mediaID {
+                        SVProgressHUD.dismiss()
+                        let sb = UIStoryboard(name: "Home", bundle: NSBundle.mainBundle())
+                        let viewController = sb.instantiateViewControllerWithIdentifier("igprofile") as InstagramProfileViewController
+                        viewController.userID = mID
+                        viewController.username = username
+                        viewController.dateString = self.dateString
+                        self.navigationController?.pushViewController(viewController, animated: true)
+                    }
+                    else {
+                        SVProgressHUD.showErrorWithStatus("No User")
+                    }
+            }
     }
 }

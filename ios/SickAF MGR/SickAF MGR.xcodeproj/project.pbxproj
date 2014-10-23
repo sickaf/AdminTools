@@ -46,6 +46,10 @@
 		7FAC06A119F7E6D000BA7D82 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAC069F19F7E6D000BA7D82 /* SVProgressHUD.m */; };
 		7FB3414B19F8BAC9008E929D /* AddImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3414A19F8BAC9008E929D /* AddImageViewController.swift */; };
 		7FB3414D19F8BBAD008E929D /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3414C19F8BBAD008E929D /* TextFieldCell.swift */; };
+		7FB3414F19F8D456008E929D /* InstagramProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3414E19F8D456008E929D /* InstagramProfileViewController.swift */; };
+		7FB3415219F8E37D008E929D /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3415119F8E37D008E929D /* json.swift */; };
+		7FB3415419F8EC27008E929D /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3415319F8EC27008E929D /* ImageCell.swift */; };
+		7FB3415619F8F65B008E929D /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3415519F8F65B008E929D /* SingleImageViewController.swift */; };
 		820EE7CF19BF21BD00F7D97C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820EE7CE19BF21BD00F7D97C /* AppDelegate.swift */; };
 		820EE7D619BF21BD00F7D97C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 820EE7D519BF21BD00F7D97C /* Images.xcassets */; };
 		821BFAC119C8FB6600A0CE65 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8267AAEE19BF28AE005E2D58 /* Alamofire.framework */; };
@@ -158,6 +162,10 @@
 		7FAC069F19F7E6D000BA7D82 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		7FB3414A19F8BAC9008E929D /* AddImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddImageViewController.swift; sourceTree = "<group>"; };
 		7FB3414C19F8BBAD008E929D /* TextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
+		7FB3414E19F8D456008E929D /* InstagramProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramProfileViewController.swift; sourceTree = "<group>"; };
+		7FB3415119F8E37D008E929D /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
+		7FB3415319F8EC27008E929D /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		7FB3415519F8F65B008E929D /* SingleImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
 		820EE7C919BF21BD00F7D97C /* WC Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WC Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		820EE7CD19BF21BD00F7D97C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		820EE7CE19BF21BD00F7D97C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -254,6 +262,15 @@
 			path = Frameworks/SVProgressHUD;
 			sourceTree = "<group>";
 		};
+		7FB3415019F8E37D008E929D /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				7FB3415119F8E37D008E929D /* json.swift */,
+			);
+			name = JSON;
+			path = Frameworks/JSON;
+			sourceTree = "<group>";
+		};
 		820EE7C019BF21BD00F7D97C = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +304,9 @@
 				7F0C777019C08A4F00E2C44C /* SickAF MGR-Bridging-Header.h */,
 				7FB3414A19F8BAC9008E929D /* AddImageViewController.swift */,
 				7FB3414C19F8BBAD008E929D /* TextFieldCell.swift */,
+				7FB3415319F8EC27008E929D /* ImageCell.swift */,
+				7FB3414E19F8D456008E929D /* InstagramProfileViewController.swift */,
+				7FB3415519F8F65B008E929D /* SingleImageViewController.swift */,
 			);
 			path = "SickAF MGR";
 			sourceTree = "<group>";
@@ -319,6 +339,7 @@
 		820EE7EB19BF225300F7D97C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7FB3415019F8E37D008E929D /* JSON */,
 				7FAC069C19F7E6D000BA7D82 /* SVProgressHUD */,
 				7F0C77A919C09B9500E2C44C /* UIKit+AFNetworking */,
 				7F0C778C19C09B8B00E2C44C /* AFNetworking */,
@@ -448,6 +469,7 @@
 				7F0C77A819C09B8B00E2C44C /* AFURLSessionManager.m in Sources */,
 				7F0C776D19C0817C00E2C44C /* DatePickerViewController.swift in Sources */,
 				7F0C77A319C09B8B00E2C44C /* AFNetworkReachabilityManager.m in Sources */,
+				7FB3415219F8E37D008E929D /* json.swift in Sources */,
 				7F0C77BB19C09B9500E2C44C /* AFNetworkActivityIndicatorManager.m in Sources */,
 				7FB3414D19F8BBAD008E929D /* TextFieldCell.swift in Sources */,
 				820EE7CF19BF21BD00F7D97C /* AppDelegate.swift in Sources */,
@@ -459,6 +481,8 @@
 				7F0C77BE19C09B9500E2C44C /* UIButton+AFNetworking.m in Sources */,
 				7FB3414B19F8BAC9008E929D /* AddImageViewController.swift in Sources */,
 				7FAC06A119F7E6D000BA7D82 /* SVProgressHUD.m in Sources */,
+				7FB3415419F8EC27008E929D /* ImageCell.swift in Sources */,
+				7FB3415619F8F65B008E929D /* SingleImageViewController.swift in Sources */,
 				7F16321619F7CAE200F6C65C /* LoginViewController.swift in Sources */,
 				7F0C77BF19C09B9500E2C44C /* UIImageView+AFNetworking.m in Sources */,
 				7F0C776F19C084CB00E2C44C /* IGPhoto.swift in Sources */,
@@ -468,6 +492,7 @@
 				7F0C77BC19C09B9500E2C44C /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				7F0C77A119C09B8B00E2C44C /* AFHTTPRequestOperationManager.m in Sources */,
 				7F0C77C119C09B9500E2C44C /* UIRefreshControl+AFNetworking.m in Sources */,
+				7FB3414F19F8D456008E929D /* InstagramProfileViewController.swift in Sources */,
 				7F0C77A419C09B8B00E2C44C /* AFSecurityPolicy.m in Sources */,
 				7F0C77A719C09B8B00E2C44C /* AFURLResponseSerialization.m in Sources */,
 				7F0C77A019C09B8B00E2C44C /* AFHTTPRequestOperation.m in Sources */,

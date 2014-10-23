@@ -44,7 +44,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         if let user = PFUser.currentUser() {
-            self.changeToDate(NSDate(), clearTable: true)
+            if let d = self.date {
+                self.changeToDate(self.date, clearTable: true)
+            }
+            else {
+                self.changeToDate(NSDate(), clearTable: true)
+            }
         }
         else {
             let sb = UIStoryboard(name: "Home", bundle: NSBundle.mainBundle())
