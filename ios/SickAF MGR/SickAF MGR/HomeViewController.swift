@@ -135,6 +135,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let key = data.keys.array[indexPath.section]
+        var photoArray = data[key]!
+        let photo = photoArray[indexPath.row]
+        showInstagramSctionSheetForPhoto(photo)
+    }
+    
     // For no crashing when loading
     func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         if (loading) { return nil }
@@ -227,6 +235,25 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         PFObject.saveAllInBackground(self.parseObjects)
     }
     
+    func showInstagramSctionSheetForPhoto(photo:IGPhoto)
+    {
+        let alertController = UIAlertController(title: photo.username, message: "", preferredStyle: .ActionSheet)
+        
+        let igAction = UIAlertAction(title: "Instagram Profile", style: .Default) { (_) in
+            
+            let url = "instagram://user?username=" + photo.username!
+            let igURL = NSURL(string: url)
+            UIApplication.sharedApplication().openURL(igURL!)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
+        
+        alertController.addAction(igAction)
+        alertController.addAction(cancelAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     // MARK: Date Picker Delegate
     
     func datePickerDismiss()
@@ -244,83 +271,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         changeToDate(date, clearTable: true)
     }
     
-    func addImageWithURL(urlString:String, category:Category)
-    {
-        SVProgressHUD.showWithStatus("Getting Instagram info...")
-        Alamofire.request(.GET, urlString) //get instagram stuff
-            .responseString { (request, response, string, error) in
-                
-                if (error == nil) {
-                    SVProgressHUD.showWithStatus("Posting pic...")
-                    var responseString = string!
-                    var testVar : Int
-                    var userString = responseString
-                    responseString = responseString.componentsSeparatedByString("og:image\" content=\"")[1]
-                    responseString = responseString.componentsSeparatedByString("\"")[0]
-                    println("url: \(responseString)")
-                    
-                    userString = userString.componentsSeparatedByString("og:description\" content=\"")[1]
-                    userString = userString.componentsSeparatedByString("'")[0]
-                    println("username: \(userString)")
-                    
-                    var newPhoto = PFObject(className: "IGPhoto")
-                    
-                    newPhoto.setObject(responseString, forKey: "URL")
-                    newPhoto.setObject(self.dateFormatter.stringFromDate(self.date), forKey: "forDate")
-                    newPhoto.setObject(userString, forKey: "IGUsername")
-                    newPhoto.setObject(category.rawValue, forKey: "imageCategory")
-                    newPhoto.setObject(PFUser.currentUser().username, forKey: "addedBy")
-                    newPhoto.setObject(50, forKey: "PhotoNum")
-                    
-                    newPhoto.saveInBackgroundWithBlock({ (success:Bool, err:NSError!) -> Void in
-                        if let err = err {
-                            SVProgressHUD.dismiss()
-                            let alertController = UIAlertController(title: "Whoops", message: err.localizedDescription, preferredStyle: .Alert)
-                            let cancelAction = UIAlertAction(title: "OK", style: .Cancel) { (_) in }
-                            alertController.addAction(cancelAction)
-                            self.presentViewController(alertController, animated: true, completion: nil)
-                        }
-                        else {
-                            print("saved photo")
-                            SVProgressHUD.showSuccessWithStatus("Posted!")
-                            self.changeToDate(self.date, clearTable: true)
-                        }
-                    })
-                }
-        }
-    }
-    
     // MARK: Actions
     
     @IBAction func pressedAdd(sender: AnyObject)
-    {
-        let alertController = UIAlertController(title: "Add Image", message: "", preferredStyle: .Alert)
-        
-        let postActionGirl = UIAlertAction(title: "Girl", style: .Default) { (_) in
-            let urlTextField = alertController.textFields![0] as UITextField
-            self.addImageWithURL(urlTextField.text, category: Category(rawValue: 0)!)
-        }
-        
-        let postActionGuy = UIAlertAction(title: "Guy", style: .Default) { (_) in
-            let urlTextField = alertController.textFields![0] as UITextField
-            self.addImageWithURL(urlTextField.text, category: Category(rawValue: 1)!)
-        }
-        let postActionAnimal = UIAlertAction(title: "Animal", style: .Default) { (_) in
-            let urlTextField = alertController.textFields![0] as UITextField
-            self.addImageWithURL(urlTextField.text, category: Category(rawValue: 2)!)
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
-        
-        alertController.addTextFieldWithConfigurationHandler { (textField) in
-            textField.placeholder = "Instagram URL"
-        }
-        
-        alertController.addAction(postActionGirl)
-        alertController.addAction(postActionGuy)
-        alertController.addAction(postActionAnimal)
-        alertController.addAction(cancelAction)
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
+    {        
+        let sb = UIStoryboard(name: "Home", bundle: NSBundle.mainBundle())
+        let viewController = sb.instantiateViewControllerWithIdentifier("addImage") as AddImageViewController
+        viewController.dateString = self.dateFormatter.stringFromDate(self.date)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     @IBAction func pressedEdit(sender: AnyObject)
