@@ -19,6 +19,8 @@ class InstagramProfileViewController: UIViewController, UICollectionViewDelegate
     var userID:String?
     var dateString:String?
     var data:[JSON] = []
+    var nextURL:String?
+    var loading = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,16 +33,35 @@ class InstagramProfileViewController: UIViewController, UICollectionViewDelegate
     // MARK: Helpers
     
     func getData(userID:String) {
-        SVProgressHUD.showWithStatus("Fetching Profile...")
-        let newEndpoint = mediaEndpoint + userID + "/media/recent"
-        Alamofire.request(.GET, newEndpoint, parameters: ["count": 100, "client_id" : clientID, "MIN_TIMESTAMP" : NSDate.distantPast().timeIntervalSince1970])
+        
+        if (loading) { return }
+        
+        loading = true
+        
+        SVProgressHUD.showWithStatus("Fetching Images...")
+        
+        var newEndpoint:String!
+        
+        if let newUrl = self.nextURL {
+            newEndpoint = newUrl
+        }
+        else {
+            newEndpoint = mediaEndpoint + userID + "/media/recent"
+        }
+        
+        Alamofire.request(.GET, newEndpoint, parameters: ["client_id" : clientID])
             .responseJSON { (request, response, jsonString, error) in
+                self.loading = false
                 SVProgressHUD.dismiss()
                 let json = JSON(jsonString!)
+                
+                let tempNext = json["pagination"]["next_url"]
+                self.nextURL = tempNext.asString
+                
+                println(json)
                 let data = json["data"]
                 if let dataArray = data.asArray {
-                    self.data = dataArray
-                    println (self.data)
+                    self.data = self.data + dataArray
                     self.collectionView.reloadData()
                 }
                 else {
@@ -88,6 +109,19 @@ class InstagramProfileViewController: UIViewController, UICollectionViewDelegate
             viewController.imageLink = urlLink.asString
             viewController.dateString = self.dateString
             self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView)
+    {
+        let scrollViewHeight = scrollView.frame.size.height
+        let scrollContentSizeHeight = scrollView.contentSize.height
+        let scrollOffset = scrollView.contentOffset.y
+        
+        if (scrollOffset + scrollViewHeight >= scrollContentSizeHeight) {
+            if let id = userID {
+                self.getData(id)
+            }
         }
     }
 }
