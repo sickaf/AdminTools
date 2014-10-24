@@ -16,9 +16,12 @@ class SingleImageViewController: UIViewController {
     var dateString:String?
     var likes:Int?
     var comments:Int?
+    var currentBG:Int!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var reflectionImageView: UIImageView!
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var loader: UIActivityIndicatorView!
+    @IBOutlet weak var gradientImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +31,12 @@ class SingleImageViewController: UIViewController {
         // Download Image
         if let url = self.imageUrl {
             self.imageView.setImageWithURLRequest(NSURLRequest(URL: NSURL(string: url)!), placeholderImage: nil, success: { (request, respons, img) -> Void in
+                
+                 let reflectedImage = UIImage(CGImage: img.CGImage, scale: img.scale, orientation: UIImageOrientation.DownMirrored)
+                
                 self.imageView.image = img
+                self.reflectionImageView.image = reflectedImage
+                
                 self.loader.stopAnimating()
             }, failure: { (request, respons, err) -> Void in
                 self.loader.stopAnimating()
@@ -44,6 +52,55 @@ class SingleImageViewController: UIViewController {
         }
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.Plain, target: self, action: "saveImg")
+        
+        currentBG = 0
+        
+        let tap = UITapGestureRecognizer(target: self, action: "tapped")
+        self.gradientImageView.addGestureRecognizer(tap)
+        
+        let doubleTap = UITapGestureRecognizer(target: self, action: "doubleTapped")
+        doubleTap.numberOfTapsRequired = 2
+        self.gradientImageView.addGestureRecognizer(doubleTap)
+        
+        tap.requireGestureRecognizerToFail(doubleTap)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    // MARK: Actions
+    
+    func tapped() {
+        let hidden = self.navigationController?.navigationBarHidden
+        self.navigationController?.setNavigationBarHidden(!hidden!, animated: true)
+    }
+    
+    func doubleTapped() {
+        currentBG = currentBG + 1
+        if (currentBG > 2) {
+            currentBG = 0
+        }
+        
+        var newBGImg:UIImage!
+        switch (currentBG) {
+        case 0:
+            newBGImg = UIImage(named: "cloudy_plus")
+        case 1:
+            newBGImg = UIImage(named: "sunny")
+        case 2:
+            newBGImg = UIImage(named: "night")
+        default:
+            newBGImg = UIImage(named: "cloudy_plus")
+        }
+        
+        self.gradientImageView.image = newBGImg
     }
 
     // MARK: Functions
