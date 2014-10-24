@@ -252,6 +252,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     {
         let alertController = UIAlertController(title: photo.username, message: "", preferredStyle: .ActionSheet)
         
+        let previewAction = UIAlertAction(title: "Preview Image", style: .Default) { (_) in
+            
+            let sb = UIStoryboard(name: "Home", bundle: NSBundle.mainBundle())
+            let viewController = sb.instantiateViewControllerWithIdentifier("single") as SingleImageViewController
+            viewController.imageUrl = photo.url
+            viewController.dateString = self.dateString
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+        
         let igAction = UIAlertAction(title: "Instagram Profile", style: .Default) { (_) in
             
             let url = "instagram://user?username=" + photo.username!
@@ -261,6 +270,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
         
+        alertController.addAction(previewAction)
         alertController.addAction(igAction)
         alertController.addAction(cancelAction)
         

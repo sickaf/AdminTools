@@ -50,8 +50,14 @@ class SingleImageViewController: UIViewController {
                 self.likesLabel.text = "Likes: " + String(likeCount) + " - " + "Comments: " + String(commentCount)
             }
         }
+        else {
+            self.likesLabel.text = ""
+        }
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.Plain, target: self, action: "saveImg")
+        // Show save button if we have an image link
+        if let link = self.imageLink {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.Plain, target: self, action: "saveImg")
+        }
         
         currentBG = 0
         

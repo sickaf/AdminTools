@@ -807,7 +807,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="O1O-dn-MIm" secondAttribute="height" multiplier="200:69" id="BVl-8p-eb3"/>
-                                    <constraint firstAttribute="width" secondItem="O1O-dn-MIm" secondAttribute="height" multiplier="32:11" id="VZf-mu-k5A"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -817,7 +816,6 @@
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="BVl-8p-eb3"/>
-                                        <exclude reference="VZf-mu-k5A"/>
                                     </mask>
                                 </variation>
                             </imageView>
@@ -829,13 +827,11 @@
                             <constraint firstItem="S0T-np-dGz" firstAttribute="width" secondItem="NqU-HY-HbR" secondAttribute="width" id="2Fl-RJ-Bro"/>
                             <constraint firstAttribute="centerX" secondItem="S0T-np-dGz" secondAttribute="centerX" id="7Pe-at-cY5"/>
                             <constraint firstItem="v95-P2-ifM" firstAttribute="width" secondItem="NqU-HY-HbR" secondAttribute="width" id="9Sz-wu-zh9"/>
-                            <constraint firstItem="9y8-m6-feY" firstAttribute="top" secondItem="v95-P2-ifM" secondAttribute="bottom" constant="8" id="Czu-Px-kFd"/>
                             <constraint firstAttribute="centerX" secondItem="O1O-dn-MIm" secondAttribute="centerX" id="Fr5-fi-IV3"/>
                             <constraint firstAttribute="centerY" secondItem="S0T-np-dGz" secondAttribute="centerY" id="Fyc-el-tM6"/>
                             <constraint firstItem="Ofj-28-ITT" firstAttribute="centerX" secondItem="v95-P2-ifM" secondAttribute="centerX" id="LB3-Fc-V6M"/>
                             <constraint firstItem="O1O-dn-MIm" firstAttribute="top" secondItem="0cm-ai-hi7" secondAttribute="bottom" constant="-20" id="MQz-Ku-Lin"/>
                             <constraint firstItem="S0T-np-dGz" firstAttribute="height" secondItem="NqU-HY-HbR" secondAttribute="height" id="OYq-oR-4hI"/>
-                            <constraint firstItem="9y8-m6-feY" firstAttribute="top" secondItem="v95-P2-ifM" secondAttribute="top" constant="408" id="PIe-iI-68i"/>
                             <constraint firstAttribute="centerX" secondItem="v95-P2-ifM" secondAttribute="centerX" id="T04-TG-LtT"/>
                             <constraint firstAttribute="centerX" secondItem="9y8-m6-feY" secondAttribute="centerX" id="ZI8-DZ-cLc"/>
                             <constraint firstItem="yvu-2e-UTi" firstAttribute="top" secondItem="9y8-m6-feY" secondAttribute="bottom" constant="20" id="fNx-jD-Hvf"/>
@@ -872,8 +868,6 @@
                                 <exclude reference="irm-vn-9qp"/>
                                 <exclude reference="jEA-VJ-ye3"/>
                                 <exclude reference="pAd-4Q-hu4"/>
-                                <exclude reference="Czu-Px-kFd"/>
-                                <exclude reference="PIe-iI-68i"/>
                                 <exclude reference="ZI8-DZ-cLc"/>
                                 <exclude reference="w0q-ae-1Ld"/>
                                 <exclude reference="fNx-jD-Hvf"/>
@@ -905,8 +899,6 @@
                                 <include reference="irm-vn-9qp"/>
                                 <include reference="jEA-VJ-ye3"/>
                                 <include reference="pAd-4Q-hu4"/>
-                                <exclude reference="Czu-Px-kFd"/>
-                                <exclude reference="PIe-iI-68i"/>
                                 <include reference="ZI8-DZ-cLc"/>
                                 <include reference="w0q-ae-1Ld"/>
                                 <include reference="fNx-jD-Hvf"/>
@@ -914,7 +906,7 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="gradientImageView" destination="S0T-np-dGz" id="cqj-lY-dnG"/>
+                        <outlet property="gradientImageView" destination="S0T-np-dGz" id="36M-Or-Uxa"/>
                         <outlet property="imageView" destination="v95-P2-ifM" id="r2I-l1-9Nx"/>
                         <outlet property="likesLabel" destination="9y8-m6-feY" id="t2J-dM-2dH"/>
                         <outlet property="loader" destination="Ofj-28-ITT" id="y8T-n6-e4F"/>
