@@ -14,12 +14,33 @@ class SingleImageViewController: UIViewController {
     var imageUrl:String?
     var imageLink:String?
     var dateString:String?
+    var likes:Int?
+    var comments:Int?
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var likesLabel: UILabel!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Image"
+        
+        // Download Image
         if let url = self.imageUrl {
-            self.imageView.setImageWithURL(NSURL(string: url))
+            self.imageView.setImageWithURLRequest(NSURLRequest(URL: NSURL(string: url)!), placeholderImage: nil, success: { (request, respons, img) -> Void in
+                self.imageView.image = img
+                self.loader.stopAnimating()
+            }, failure: { (request, respons, err) -> Void in
+                self.loader.stopAnimating()
+            })
+        }
+        
+        // Show number of likes and comments
+        if let likeCount = likes {
+            // Show number of comments
+            if let commentCount = comments {
+                self.likesLabel.text = "Likes: " + String(likeCount) + " - " + "Comments: " + String(commentCount)
+            }
         }
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.Plain, target: self, action: "saveImg")

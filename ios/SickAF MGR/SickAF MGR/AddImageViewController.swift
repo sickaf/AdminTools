@@ -9,17 +9,57 @@
 import UIKit
 import Alamofire
 
-class AddImageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AddImageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var chosenCategory:Category?
     var dateString:String?
     let clientID = "c16a25899b924b27aaea9a83bf6e3a8f"
     let getUsernameEndpoint: String = "https://api.instagram.com/v1/users/search"
+    var currentTextCell:TextFieldCell!
+    var firstTextField:UITextField!
+    var secondTextField:UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Add Image"
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardDidHideNotification, object: nil)
+    }
+    
+    // MARK: Notifications
+    
+    func keyboardWillShow(note: NSNotification) {
+        
+        let info = note.userInfo
+        let duration = info![UIKeyboardAnimationDurationUserInfoKey] as Double
+        let s: NSValue = info![UIKeyboardFrameEndUserInfoKey] as NSValue;
+        let rect: CGRect = s.CGRectValue();
+        
+        var contentInsets = UIEdgeInsetsMake(0, 0, rect.height, 0)
+        
+        self.tableView.contentInset = contentInsets;
+        self.tableView.scrollIndicatorInsets = contentInsets;
+        
+        let indPath = self.tableView.indexPathForCell(currentTextCell)
+        self.tableView.scrollToRowAtIndexPath(indPath!, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+    }
+    
+    func keyboardWillHide(note: NSNotification) {
+        
+        var contentInsets = UIEdgeInsetsZero
+        
+        let info = note.userInfo
+        let duration = info![UIKeyboardAnimationDurationUserInfoKey] as Double
+        
+        UIView.animateWithDuration(duration, animations: { () -> Void in
+            self.tableView.contentInset = contentInsets;
+            self.tableView.scrollIndicatorInsets = contentInsets;
+        })
+        
+        firstTextField.userInteractionEnabled = false
+        secondTextField.userInteractionEnabled = false
     }
 
     // MARK: Table View Data Source
@@ -41,6 +81,16 @@ class AddImageViewController: UIViewController, UITableViewDelegate, UITableView
         if (indexPath.row == 0) {
             var cell: TextFieldCell! = tableView.dequeueReusableCellWithIdentifier("textfieldcell") as TextFieldCell
             cell.textField.placeholder = indexPath.section == 0 ? "Instagram URL" : "Username"
+            cell.textField.returnKeyType = UIReturnKeyType.Done
+            cell.textField.delegate = self;
+            
+            if (indexPath.section == 0) {
+                self.firstTextField = cell.textField
+            }
+            else {
+                self.secondTextField = cell.textField
+            }
+            
             return cell;
         }
         
@@ -72,10 +122,20 @@ class AddImageViewController: UIViewController, UITableViewDelegate, UITableView
     
     // MARK: Table View Delegate
     
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        if (indexPath.row == 0) {
+            let cell: TextFieldCell! = tableView.cellForRowAtIndexPath(indexPath) as TextFieldCell
+            self.currentTextCell = cell
+        }
+        
+        return indexPath
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if (indexPath.row == 0) {
             tableView.deselectRowAtIndexPath(indexPath, animated: false)
             let cell: TextFieldCell! = tableView.cellForRowAtIndexPath(indexPath) as TextFieldCell
+            cell.textField.userInteractionEnabled = true
             cell.textField.becomeFirstResponder()
         }
         else {
@@ -86,17 +146,15 @@ class AddImageViewController: UIViewController, UITableViewDelegate, UITableView
                     showCategoryChooser()
                 }
                 else {
-                    let cell: TextFieldCell! = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as TextFieldCell
-                    if let text = cell.textField.text {
+                    if (self.firstTextField.text != "") {
                         if let cat = self.chosenCategory {
-                            addImageWithURL(text, category: cat)
+                            addImageWithURL(self.firstTextField.text, category: cat)
                         }
                     }
                 }
             } else {
-                let cell: TextFieldCell! = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as TextFieldCell
-                if let text = cell.textField.text {
-                    showIGProfileForUser(text)
+                if (self.secondTextField.text != "") {
+                    showIGProfileForUser(self.secondTextField.text)
                 }
             }
         }
@@ -214,5 +272,13 @@ class AddImageViewController: UIViewController, UITableViewDelegate, UITableView
                         SVProgressHUD.showErrorWithStatus("No User")
                     }
             }
+    }
+    
+    // MARK: Text Field Delegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.firstTextField.resignFirstResponder()
+        self.secondTextField.resignFirstResponder()
+        return true
     }
 }

@@ -12,6 +12,7 @@ import Alamofire
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, DatePickerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     
     var data = [Category:[IGPhoto]]()
     var parseObjects = [PFObject]()
@@ -43,6 +44,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        if (PFUser.currentUser() == nil) {
+            let sb = UIStoryboard(name: "Home", bundle: NSBundle.mainBundle())
+            let viewController = sb.instantiateViewControllerWithIdentifier("login") as LoginViewController
+            self.presentViewController(viewController, animated: false, completion: nil)
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         if let user = PFUser.currentUser() {
             if let d = self.date {
                 self.changeToDate(self.date, clearTable: true)
@@ -50,11 +60,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             else {
                 self.changeToDate(NSDate(), clearTable: true)
             }
-        }
-        else {
-            let sb = UIStoryboard(name: "Home", bundle: NSBundle.mainBundle())
-            let viewController = sb.instantiateViewControllerWithIdentifier("login") as LoginViewController
-            self.presentViewController(viewController, animated: false, completion: nil)
         }
     }
     
@@ -164,6 +169,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.loading = false
         self.tableView.reloadData()
         self.refreshControl.endRefreshing()
+        self.loader.stopAnimating()
     }
     
     func getDataForDate(date: String, clearTable: Bool) {
@@ -172,6 +178,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if (clearTable) {
             self.data.removeAll(keepCapacity: false)
             self.tableView.reloadData()
+            self.loader.startAnimating()
+            self.loader.hidden = false
         }
         
         // Setup query for Instagram pics

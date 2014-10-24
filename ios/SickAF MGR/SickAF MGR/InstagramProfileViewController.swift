@@ -12,6 +12,7 @@ import Alamofire
 class InstagramProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     
     var username:String?
     let mediaEndpoint: String = "https://api.instagram.com/v1/users/"
@@ -38,8 +39,6 @@ class InstagramProfileViewController: UIViewController, UICollectionViewDelegate
         
         loading = true
         
-        SVProgressHUD.showWithStatus("Fetching Images...")
-        
         var newEndpoint:String!
         
         if let newUrl = self.nextURL {
@@ -52,7 +51,7 @@ class InstagramProfileViewController: UIViewController, UICollectionViewDelegate
         Alamofire.request(.GET, newEndpoint, parameters: ["client_id" : clientID])
             .responseJSON { (request, response, jsonString, error) in
                 self.loading = false
-                SVProgressHUD.dismiss()
+                self.loader.stopAnimating()
                 let json = JSON(jsonString!)
                 
                 let tempNext = json["pagination"]["next_url"]
@@ -85,6 +84,7 @@ class InstagramProfileViewController: UIViewController, UICollectionViewDelegate
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: ImageCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as ImageCell
+        cell.contentView.backgroundColor = UIColor.whiteColor()
         let urlString = self.data[indexPath.row]["images"]["thumbnail"]["url"]
         if let url = urlString.asString {
             cell.imageView.setImageWithURL(NSURL(string: url))
@@ -102,12 +102,16 @@ class InstagramProfileViewController: UIViewController, UICollectionViewDelegate
         
         let urlString = self.data[indexPath.row]["images"]["standard_resolution"]["url"]
         let urlLink = self.data[indexPath.row]["link"]
+        let likes = self.data[indexPath.row]["likes"]["count"]
+        let comments = self.data[indexPath.row]["comments"]["count"]
         if let url = urlString.asString {
             let sb = UIStoryboard(name: "Home", bundle: NSBundle.mainBundle())
             let viewController = sb.instantiateViewControllerWithIdentifier("single") as SingleImageViewController
             viewController.imageUrl = url
             viewController.imageLink = urlLink.asString
             viewController.dateString = self.dateString
+            viewController.likes = likes.asInt
+            viewController.comments = comments.asInt
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
