@@ -99,22 +99,22 @@ class AddImageViewController: UIViewController, UITableViewDelegate, UITableView
         if (indexPath.section == 0) {
             if (indexPath.row == 1) {
                 if let cat = self.chosenCategory {
-                    cell.textLabel.text = cat.simpleDescription()
-                    cell.textLabel.textColor = UIColor.blackColor()
+                    cell.textLabel?.text = cat.simpleDescription()
+                    cell.textLabel?.textColor = UIColor.blackColor()
                 }
                 else {
-                    cell.textLabel.text = "Choose category"
-                    cell.textLabel.textColor = UIColor.lightGrayColor()
+                    cell.textLabel?.text = "Choose category"
+                    cell.textLabel?.textColor = UIColor.lightGrayColor()
                 }
             }
             else {
-                cell.textLabel.text = "Add"
+                cell.textLabel?.text = "Add"
             }
         }
         
         if (indexPath.section == 1) {
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-            cell.textLabel.text = "View Profile"
+            cell.textLabel?.text = "View Profile"
         }
         
         return cell
@@ -191,27 +191,27 @@ class AddImageViewController: UIViewController, UITableViewDelegate, UITableView
     func addImageWithURL(urlString:String, category:Category)
     {
         SVProgressHUD.showWithStatus("Getting Instagram info...")
-        Alamofire.request(.GET, urlString) //get instagram stuff
-            .responseString { (request, response, string, error) in
+        
+        let mediaEndpoint: String = "https://api.instagram.com/v1/media/shortcode/"
+        let newEndpoint: String = mediaEndpoint + urlString.componentsSeparatedByString("/")[4];
+        let clientID = "c16a25899b924b27aaea9a83bf6e3a8f"
+        
+        Alamofire.request(.GET, newEndpoint, parameters: ["client_id" : clientID])
+            .responseJSON { (request, response, data, error) in
                 
                 if (error == nil) {
                     SVProgressHUD.showWithStatus("Posting pic...")
-                    var responseString = string!
-                    var testVar : Int
-                    var userString = responseString
-                    responseString = responseString.componentsSeparatedByString("og:image\" content=\"")[1]
-                    responseString = responseString.componentsSeparatedByString("\"")[0]
-                    println("url: \(responseString)")
                     
-                    userString = userString.componentsSeparatedByString("og:description\" content=\"")[1]
-                    userString = userString.componentsSeparatedByString("'")[0]
-                    println("username: \(userString)")
+                    let json = JSON(data!)
+                    
+                    let username = json["data"]["user"]["username"]
+                    let imageURL = json["data"]["images"]["standard_resolution"]["url"]
                     
                     var newPhoto = PFObject(className: "IGPhoto")
                     
-                    newPhoto.setObject(responseString, forKey: "URL")
+                    newPhoto.setObject(imageURL.asString, forKey: "URL")
                     newPhoto.setObject(self.dateString, forKey: "forDate")
-                    newPhoto.setObject(userString, forKey: "IGUsername")
+                    newPhoto.setObject(username.asString, forKey: "IGUsername")
                     newPhoto.setObject(category.rawValue, forKey: "imageCategory")
                     newPhoto.setObject(PFUser.currentUser().username, forKey: "addedBy")
                     newPhoto.setObject(50, forKey: "PhotoNum")
@@ -229,6 +229,7 @@ class AddImageViewController: UIViewController, UITableViewDelegate, UITableView
                             SVProgressHUD.showSuccessWithStatus("Posted!")
                         }
                     })
+                    
                 }
         }
     }
